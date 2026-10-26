@@ -35,7 +35,7 @@ function init({ animate, inView, scroll, stagger }) {
   const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   /* ---------- hero (saat load) ---------- */
-  animate(".hero .wi", { y: ["105%", "0%"] }, { duration: 0.95, delay: stagger(0.07), ease: EXPO });
+  animate(".hero .wi", { y: ["130%", "0%"] }, { duration: 0.95, delay: stagger(0.07), ease: EXPO });
   animate(".hero [data-in]", { opacity: [0, 1], y: [22, 0] }, { duration: 0.85, delay: stagger(0.09, { startDelay: 0.5 }), ease: EXPO });
   animate("#phone-wrap", { opacity: [0, 1], y: [60, 0] }, { duration: 1.15, delay: 0.45, ease: EXPO });
   animate(".stamp", { opacity: [0, 1], scale: [0.6, 1] }, { delay: 1.25, type: "spring", stiffness: 180, damping: 16 });

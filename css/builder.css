@@ -8,7 +8,7 @@ body.builder { background: var(--alt); height: 100vh; overflow: hidden; display:
 .panel details { padding: 0 4px; }
 .panel .body { padding: 2px 0 20px; }
 .panel .btn { white-space: normal; }
-@media (max-width: 520px) { .bar { gap: 8px; padding: 0 12px; } .bar .logo { font-size: 1.2rem; } .bar .logo-mark { width: 28px; height: 28px; } }
+@media (max-width: 520px) { .bar { gap: 8px; padding: 0 12px; } .bar .logo-img { height: 34px; } }
 .bar-actions { margin-left: auto; display: flex; gap: 8px; }
 .tabs { display: none; }
 .layout { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(360px, 460px) 1fr; }

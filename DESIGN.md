@@ -24,7 +24,7 @@ VISUAL_REFERENCE  = "motion.ayprojex.com (Bricolage Grotesque, display raksasa t
                      Taste Skill dials: DESIGN_VARIANCE 8 · MOTION_INTENSITY 6 · VISUAL_DENSITY 4."
 MOOD              = "Hangat, percaya diri, jujur, sedikit playful. Premium tanpa pamer."
 COLOR_DIRECTION   = "Diambil dari akun Instagram @ur.memento: paper putih hangat #FFFEF5 (bingkai putih feed), ink cokelat zaitun #3A3010 (ikon highlight), aksen lemon #ECEF88 (latar highlight; hanya sebagai fill dengan teks ink), emas #A68620 (kilau avatar; hanya untuk garis dekoratif)."
-TYPOGRAPHY_STYLE  = "Lora bold (judul, meniru wordmark serif tebal huruf kecil ur.memento) + DM Sans (body/UI) + Allura (script, meniru tulisan 'Photography' di logo) untuk satu kata penekanan."
+TYPOGRAPHY_STYLE  = "Lora bold (judul, meniru wordmark serif tebal huruf kecil ur.memento) + DM Sans (body/UI) + Dancing Script (script, hampir identik dengan tulisan 'Photography' di logo) untuk satu kata penekanan."
 GRAPHIC_LANGUAGE  = "Garis tangan (coretan di bawah kata kunci), cap bulat berputar, marquee, numeral outline.
                      Cover template dibuat dari CSS/SVG. Tanpa gradient dekoratif, tanpa glassmorphism."
 ```
@@ -42,7 +42,7 @@ Progressive enhancement: konten terlihat tanpa JS/CDN. State tersembunyi hanya a
 ```css
 --paper: #FFFEF5;   --paper-2: #F5F4DC;  --raised: #FFFFFF;
 --ink: #3A3010;     --muted: #665D2E;    --accent: #ECEF88;   --gold: #A68620;   --line: rgba(58,48,16,.2);
---font: "DM Sans"; --head: "Lora"; --serif: "Allura";
+--font: "DM Sans"; --head: "Lora"; --serif: "Dancing Script";
 --step-small: clamp(.8125rem, .79rem + .1vw, .875rem);
 --step-body: clamp(1.0625rem, 1rem + .25vw, 1.1875rem);
 --step-lead: clamp(1.25rem, 1.1rem + .7vw, 1.625rem);
