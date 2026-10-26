@@ -61,6 +61,14 @@
       <g transform="translate(232 30) scale(.3)"><path class="f1" d="${roofPath}"/></g>
       <path class="k1" d="M0 61 H320" stroke-width="1"/>
       <circle class="g1 twinkle" cx="160" cy="40" r="2.4"/><circle class="g1 twinkle d2" cx="120" cy="30" r="1.8"/><circle class="g1 twinkle d3" cx="204" cy="32" r="1.8"/>`, FOOT_VB),
+    gading: () => {
+      let lot = "";
+      [60, 160, 260].forEach((x, i) => { lot += `<g class="${i === 1 ? "pulse" : ""}">${flower(x, 40, 11, i === 1 ? "f1" : "f2", 8)}</g>`; });
+      return svg(`
+        <path class="f1" d="${tri(70, 14, 20, 0, 320, true)}" fill-opacity=".85"/>
+        <path class="f2" d="${tri(52, 10, 20, 10, 310, false)}"/>${lot}
+        <path class="k2" d="M0 69 H320" stroke-width="1.2"/>`, FOOT_VB);
+    },
     pastel: () => {
       let g = "";
       for (let i = 0; i < 10; i++) {
@@ -116,6 +124,25 @@
           <circle class="g1 twinkle" cx="32" cy="12" r="3"/><circle class="g1 twinkle d2" cx="160" cy="6" r="3.2"/><circle class="g1 twinkle d3" cx="288" cy="12" r="3"/>`);
       },
       divider: `<path d="M72 14 L80 2 L88 14 Z" fill="currentColor"/><path d="M92 14 L97 6 L102 14 Z M58 14 L63 6 L68 14 Z" fill="currentColor" opacity=".6"/>`
+    },
+
+    // ---------- Pura Gading: candi bentar (gerbang terbelah) dengan padma ----------
+    gading: {
+      top: () => {
+        const half = `M36 118 V100 H50 V82 H64 V64 H80 V46 H96 V32 H114 V20 H140 V118 Z`;
+        const carve = (x0) => [[x0 + 14, 108], [x0 + 28, 90], [x0 + 44, 72], [x0 + 62, 54], [x0 + 82, 38]].map(([x, y]) => `M${x} ${y - 5} l5 5 l-5 5 l-5 -5 Z`).join(" ");
+        return svg(`
+          <circle class="g1 pulse" cx="160" cy="72" r="34" fill-opacity=".2"/>
+          <path class="f1" d="${half}"/>
+          <path class="f1" d="${half}" transform="translate(320 0) scale(-1 1)"/>
+          <path class="k2" d="${carve(40)}" stroke-width="1.2" transform="translate(0 0)"/>
+          <g transform="translate(320 0) scale(-1 1)"><path class="k2" d="${carve(40)}" stroke-width="1.2"/></g>
+                    <g class="pulse">${flower(160, 96, 15, "f1", 8)}</g>
+          <path class="k1" d="M142 22 q18 -18 36 0" stroke-width="2"/>
+          <circle class="g1 twinkle" cx="160" cy="12" r="3"/><circle class="g1 twinkle d2" cx="112" cy="14" r="2.2"/><circle class="g1 twinkle d3" cx="208" cy="14" r="2.2"/>
+          <path class="k2" d="M24 119 H296" stroke-width="1.5"/>`);
+      },
+      divider: `${flower(80, 9, 6, "cc", 8)}<path d="M60 9 h10 M90 9 h10" stroke="currentColor" stroke-width="1.2"/>`
     },
 
     // ---------- Jawa Pastel: gunungan dan bunga ----------

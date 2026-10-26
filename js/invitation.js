@@ -207,6 +207,7 @@
   /* ---------- dekorasi seksi isi (tekstur, bunga/pita tepi, ornamen, penutup) ---------- */
   function decorateSections(theme) {
     document.documentElement.style.setProperty("--art-corner", U.artCornerURL ? U.artCornerURL(theme) : "none");
+    document.body.classList.toggle("has-corner", !!(U.artCornerURL && U.artCornerURL(theme) !== "none"));
     const dec = U.artSection ? U.artSection(theme) : "";
     const orn = U.art ? U.art(theme, "top") : "";
     app.querySelectorAll("section.sec").forEach((sec) => {

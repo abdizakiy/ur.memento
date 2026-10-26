@@ -97,15 +97,16 @@ body.t-putih .wash, .mini-putih .wash { opacity: .16; } body.t-pastel .wash, .mi
 
 /* ---------- dekorasi seksi isi undangan ---------- */
 .sec.decorated, .sec.closing { position: relative; overflow: hidden; }
-.sec.decorated { padding-top: 92px; padding-bottom: 92px; }
+.sec.decorated { padding-top: 112px; padding-bottom: 130px; }
 .sec.decorated > :not(.sd), .sec.closing > :not(.ly):not(.wash) { position: relative; z-index: 1; }
 .sd { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
 .sd-tex { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: .065; mix-blend-mode: multiply; }
 body.t-malam .sd-tex { mix-blend-mode: screen; opacity: .55; }
 .sd-band { position: absolute; left: 0; right: 0; height: 22px; background-size: auto 100%; background-repeat: repeat-x; opacity: .95; }
 .sd-band-t { top: 0; } .sd-band-b { bottom: 0; }
-.sd .ly-c { width: 31%; }
-.sec.closing { padding-top: 110px; padding-bottom: 110px; }
+.sd .ly-c { width: 28%; }
+.sec.closing { padding-top: 150px; padding-bottom: 150px; }
+.sec.closing .ly-c { width: 31%; }
 
 /* ornamen utama (atap, penjor, kepala halaman) di atas judul seksi tertentu */
 .sec-orn { width: min(250px, 72%); margin: -6px auto 12px; position: relative; z-index: 1; }
@@ -140,3 +141,12 @@ body.t-malam .sd-tex { mix-blend-mode: screen; opacity: .55; }
 .sec.decorated .person .ph { margin-bottom: 36px; }
 .sec.closing.has-border { padding-left: calc(19% + 20px); }
 .sec.closing.has-border > .sec-orn { margin-left: auto; margin-right: auto; }
+
+/* tema tanpa bunga sudut: berlian kecil di puncak dan dasar bingkai foto */
+body:not(.has-corner) .person .ph::before, body:not(.has-corner) .person .ph::after {
+  -webkit-mask-image: none; mask-image: none; background: var(--accent); width: 9px; height: 9px; left: 50%; right: auto; top: -13px; bottom: auto;
+  margin-left: -4.5px; transform: rotate(45deg); box-shadow: 0 0 0 3px var(--bg);
+}
+body:not(.has-corner) .person .ph::after { top: auto; bottom: -13px; transform: rotate(45deg); }
+body:not(.has-corner) .sec.alt .person .ph::before, body:not(.has-corner) .sec.alt .person .ph::after { box-shadow: 0 0 0 3px var(--card); }
+.hero.has-corner { padding-top: 150px; }
