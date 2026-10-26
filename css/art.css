@@ -86,4 +86,11 @@
 .cover.has-border .to strong { font-size: 20px; overflow-wrap: normal; word-break: normal; }
 .cover.has-border .cover-inner { padding-left: 14px; padding-right: 14px; }
 /* tema berlatar terang: cat air lebih tipis agar tidak keabu-abuan */
-body.t-putih .wash { opacity: .16; } body.t-pastel .wash { opacity: .5; } body.t-mawar .wash { opacity: .55; }
+body.t-putih .wash, .mini-putih .wash { opacity: .16; } body.t-pastel .wash, .mini-pastel .wash { opacity: .5; } body.t-mawar .wash, .mini-mawar .wash { opacity: .55; }
+
+/* kartu mini (galeri landing, pemilih builder): lapisan di belakang bingkai teks */
+.mini .ly { z-index: 0; }
+.mini .wash { z-index: 0; }
+.mini .mini-frame { position: relative; z-index: 2; }
+.mini.has-border { padding-left: calc(19% + 8px); }
+.mini .ly-c { width: 52%; }

@@ -169,7 +169,9 @@
     const style = `--bg:${v.bg};--bg2:${v.bg2};--ink:${v.ink};--accent:${v.accent};--ondark:${v.ondark};--display:${theme.fonts.display};--script:${theme.fonts.script};` +
       `--pat:${patternURL(theme.pattern, v.ondark, 0.2)};--glow:${v.glow || v.accent};--fx:${v.fx || v.accent};`;
     const light = !theme.dark && (theme.id === "mawar" || theme.id === "putih");
-    return `<div class="mini mini-${theme.id} ${light ? "mini-light" : ""} ${theme.fx ? "mini-fx-" + theme.fx : ""}" style="${style}" aria-hidden="true">
+    const X = window.URMEMENTO || {}, as = X.artAssets ? X.artAssets(theme) : null;
+    const ly = as ? `<div class="wash"></div>${X.artLayers(theme)}` : "";
+    return `<div class="mini mini-${theme.id} ${light ? "mini-light" : ""} ${theme.fx ? "mini-fx-" + theme.fx : ""} ${as && as.border ? "has-border" : ""}" style="${style}" aria-hidden="true">${ly}
       <div class="mini-frame mini-frame-${theme.frame}">
         ${U_art(theme)}
         <small>The Wedding of</small>

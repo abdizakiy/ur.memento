@@ -230,6 +230,17 @@
     return Object.assign({ base: `assets/themes/${id}/` }, m);
   };
 
+  // markup lapisan aset (bg, border, scene, corner) untuk cover undangan, kartu galeri, dan pemilih builder
+  U.artLayers = (theme) => {
+    const a = U.artAssets(theme);
+    if (!a) return "";
+    const e = U.esc;
+    const img = (cls, f) => (f ? `<img class="${cls}" src="${e(a.base + f)}" alt="" decoding="async">` : "");
+    const corner = a.corner ? ["tl", "tr", "bl", "br"].map((p) => `<div class="ly-c ly-${p}"><img src="${e(a.base + a.corner)}" alt="" decoding="async"></div>`).join("") : "";
+    const border = a.border ? `<div class="ly-border" style="background-image:url(&quot;${e(a.base + a.border)}&quot;)"></div>` : "";
+    return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${border}${img("ly-scene", a.scene)}${corner}</div>`;
+  };
+
   // slot "top" / "divider"; kembalikan "" bila tema tidak punya ilustrasi
   U.art = (theme, slot) => {
     const id = typeof theme === "string" ? theme : theme.id;

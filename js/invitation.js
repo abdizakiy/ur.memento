@@ -64,13 +64,7 @@
   };
 
   // lapisan aset gambar (bg, border, corner, scene); bila ada, menggantikan ilustrasi SVG bawaan
-  const layers = (theme) => {
-    const a = U.artAssets ? U.artAssets(theme) : null;
-    if (!a) return "";
-    const img = (cls, f) => (f ? `<img class="${cls}" src="${esc(a.base + f)}" alt="" decoding="async">` : "");
-    const corner = a.corner ? ["tl", "tr", "bl", "br"].map((p) => `<div class="ly-c ly-${p}"><img src="${esc(a.base + a.corner)}" alt="" decoding="async"></div>`).join("") : "";
-    return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${a.border ? `<div class="ly-border" style="background-image:url(&quot;${esc(a.base + a.border)}&quot;)"></div>` : ""}${img("ly-scene", a.scene)}${corner}</div>`;
-  };
+  const layers = (theme) => (U.artLayers ? U.artLayers(theme) : "");
   // ilustrasi SVG bawaan hanya diganti bila tema punya gambar scene; bg, border, dan corner tampil bersama SVG
   const hasLayers = (theme) => { const a = U.artAssets && U.artAssets(theme); return !!(a && a.scene); };
 
