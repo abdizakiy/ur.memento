@@ -1,8 +1,8 @@
 /* Konfigurasi ur.memento - ubah di sini, halaman harga & tabel perbandingan ikut berubah. */
 window.URMEMENTO_CONFIG = {
   brand: "ur.memento",
-  // GANTI dengan nomor WhatsApp admin (format internasional tanpa +, mis. 6281234567890)
-  whatsapp: "6280000000000",
+  // Nomor WhatsApp admin (format internasional tanpa +, mis. 6281234567890)
+  whatsapp: "6287784532572",
   instagram: "https://instagram.com/ur.memento",
   refundDays: 7,
 
