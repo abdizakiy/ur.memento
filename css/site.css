@@ -326,3 +326,11 @@ details p { color: var(--muted); padding: 0 56px 26px 0; max-width: 64ch; }
   html { scroll-behavior: auto; }
   .btn, .btn .arr, .vow h3, .card-art .mini, .step-n, summary::after { transition: none; }
 }
+
+/* ---------- status fitur ---------- */
+.soon { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 2px 9px; border: 1.5px dashed currentColor; border-radius: 999px; font: 600 .6875rem/1.4 var(--font); font-style: normal; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; color: var(--muted); }
+.cmp .soon { margin-left: 0; }
+.plan-hl .soon, .dark .soon { color: rgba(255, 254, 245, .78); }
+.feat h3 .soon { font-size: .625rem; }
+.cmp-note { margin-top: 14px; color: var(--muted); font-size: var(--step-small); }
+.cmp-note .soon { margin-left: 0; margin-right: 4px; }

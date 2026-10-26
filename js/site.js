@@ -53,6 +53,7 @@
   }).join("");
 
   // harga
+  const SOON = '<em class="soon">Segera hadir</em>';
   $("#plans").innerHTML = C.plans.map((p) => `
     <article class="plan ${p.highlight ? "plan-hl" : ""}">
       ${p.highlight ? '<span class="plan-badge">Paling sering dipilih</span>' : ""}
@@ -60,16 +61,16 @@
       <p class="plan-note">${esc(p.note)}</p>
       <p class="plan-price" aria-label="${p.price ? "Rp" + idr(p.price) : "Gratis"}">${p.price === 0 ? "Gratis" : `<span class="rp">Rp</span><span data-count="${p.price}">${idr(p.price)}</span>`}</p>
       <span class="plan-unit">${p.price ? "sekali bayar" : "&nbsp;"}</span>
-      <ul>${p.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
+      <ul>${p.bullets.map((b) => typeof b === "string" ? `<li>${esc(b)}</li>` : `<li>${esc(b.t)}${b.soon ? SOON : ""}</li>`).join("")}</ul>
       <a class="btn btn-block" href="buat.html?plan=${p.id}"><span class="lbl">${esc(p.cta)}</span></a>
     </article>`).join("");
 
-  const cell = (v) => v === true ? '<span class="y" aria-label="Termasuk">✓</span>' : v === false ? '<span class="n" aria-label="Tidak termasuk">—</span>' : `<span class="t">${esc(v)}</span>`;
+  const cell = (v, soon) => soon && v !== false ? `<span class="soon" aria-label="Segera hadir, belum tersedia">Segera hadir</span>` : v === true ? '<span class="y" aria-label="Termasuk">✓</span>' : v === false ? '<span class="n" aria-label="Tidak termasuk">—</span>' : `<span class="t">${esc(v)}</span>`;
   let tbl = `<thead><tr><th scope="col">Fitur</th>${C.plans.map((p) => `<th scope="col" class="${p.highlight ? "hl" : ""}">${esc(p.name)}<small>${p.price ? "Rp" + idr(p.price) : "Gratis"}</small></th>`).join("")}</tr></thead><tbody>`;
   C.features.forEach((g) => {
     tbl += `<tr class="grp"><th colspan="${C.plans.length + 1}" scope="colgroup">${esc(g.group)}</th></tr>`;
     g.rows.forEach((r) => {
-      tbl += `<tr><th scope="row">${esc(r.label)}</th>${r.values.map((v, i) => `<td class="${C.plans[i].highlight ? "hl" : ""}">${cell(v)}</td>`).join("")}</tr>`;
+      tbl += `<tr><th scope="row">${esc(r.label)}</th>${r.values.map((v, i) => `<td class="${C.plans[i].highlight ? "hl" : ""}">${cell(v, r.soon)}</td>`).join("")}</tr>`;
     });
   });
   $("#cmp").innerHTML = tbl + "</tbody>";

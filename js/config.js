@@ -15,17 +15,17 @@ window.URMEMENTO_CONFIG = {
     {
       id: "esensial", name: "Esensial", price: 59000, note: "Cukup untuk undangan sederhana",
       cta: "Pilih Esensial", highlight: false,
-      bullets: ["Aktif selamanya", "Nama tamu tak terbatas", "RSVP, ucapan, peta, musik"]
+      bullets: ["Aktif selamanya", "Nama tamu tak terbatas", "RSVP via WhatsApp, peta, musik"]
     },
     {
       id: "plus", name: "Plus", price: 99000, note: "Paling banyak cocok untuk pernikahan",
       cta: "Pilih Plus", highlight: true,
-      bullets: ["Semua di Esensial", "Galeri 20 foto + cerita cinta", "Amplop digital, 2 bahasa, live streaming"]
+      bullets: ["Semua di Esensial", "Galeri 20 foto + cerita cinta", "Amplop digital", { t: "2 bahasa", soon: true }, { t: "Live streaming", soon: true }]
     },
     {
       id: "eksklusif", name: "Eksklusif", price: 169000, note: "Acara besar & butuh check-in tamu",
       cta: "Pilih Eksklusif", highlight: false,
-      bullets: ["Semua di Plus", "QR check-in & buku tamu", "Undangan privat + atur meja"]
+      bullets: ["Semua di Plus", { t: "QR check-in & buku tamu", soon: true }, { t: "Undangan privat", soon: true }, { t: "Atur meja", soon: true }]
     }
   ],
 
@@ -36,25 +36,25 @@ window.URMEMENTO_CONFIG = {
       { label: "Tanpa watermark ur.memento",     values: [false, true, true, true] },
       { label: "Template dasar (Adat, Floral, Minimalis, Islami)", values: [true, true, true, true] },
       { label: "Template premium animasi",   values: [false, false, true, true] },
-      { label: "Edit ulang kapan saja",      values: [true, true, true, true] },
+      { label: "Edit data (menghasilkan link baru)", values: [true, true, true, true] },
       { label: "Biaya admin pembayaran",     values: ["-", "Tidak ada", "Tidak ada", "Tidak ada"] }
     ]},
     { group: "Isi undangan", rows: [
       { label: "Nama tamu personal",         values: ["5 nama", "Tak terbatas", "Tak terbatas", "Tak terbatas"] },
       { label: "Foto galeri",                values: ["3 foto", "6 foto", "20 foto", "30 foto"] },
-      { label: "RSVP & ucapan",              values: [true, true, true, true] },
+      { label: "RSVP lewat WhatsApp tuan rumah", values: [true, true, true, true] },
       { label: "Peta & simpan ke kalender",  values: [true, true, true, true] },
       { label: "Musik latar",                values: [true, true, true, true] },
       { label: "Cerita cinta",               values: [false, false, true, true] },
-      { label: "Dua bahasa",                 values: [false, false, true, true] },
+      { label: "Dua bahasa",                 values: [false, false, true, true], soon: true },
       { label: "Amplop digital (rekening/e-wallet)", values: [false, false, true, true] },
-      { label: "Link live streaming",        values: [false, false, true, true] }
+      { label: "Link live streaming",        values: [false, false, true, true], soon: true }
     ]},
     { group: "Hari-H & privasi", rows: [
-      { label: "Undangan privat (kode akses, tersembunyi dari Google)", values: [false, false, false, true] },
-      { label: "QR check-in & buku tamu digital", values: [false, false, false, true] },
-      { label: "Layar sapa tamu",            values: [false, false, false, true] },
-      { label: "Atur meja & denah",          values: [false, false, false, true] }
+      { label: "Undangan privat (kode akses)", values: [false, false, false, true], soon: true },
+      { label: "QR check-in & buku tamu digital", values: [false, false, false, true], soon: true },
+      { label: "Layar sapa tamu",            values: [false, false, false, true], soon: true },
+      { label: "Atur meja & denah",          values: [false, false, false, true], soon: true }
     ]},
     { group: "Bantuan", rows: [
       { label: "Dukungan",                   values: ["Panduan", "WhatsApp", "WhatsApp", "WhatsApp prioritas"] },
@@ -66,7 +66,7 @@ window.URMEMENTO_CONFIG = {
     { q: "Apakah benar tidak ada harga coret atau biaya tersembunyi?",
       a: "Benar. Harga yang tertulis adalah harga yang Anda bayar. Kami tidak memasang harga coret palsu, dan tidak ada biaya admin pembayaran." },
     { q: "Apa bedanya paket Coba dengan yang berbayar?",
-      a: "Paket Coba memakai semua template dasar, tetapi aktif 7 hari, memakai watermark ur.memento, dan batas foto/nama tamu lebih kecil. Paket berbayar aktif selamanya tanpa watermark." },
+      a: "Paket Coba dirancang untuk melihat hasilnya dulu: semua template dasar, aktif 7 hari, ada watermark ur.memento, dan batas foto/nama tamu lebih kecil. Paket berbayar aktif selamanya tanpa watermark. Catatan jujur: batas masa aktif dan watermark paket Coba belum diberlakukan otomatis di versi prototipe ini." },
     { q: "Bagaimana jika saya tidak cocok setelah membayar?",
       a: "Anda bisa meminta pengembalian dana penuh dalam {refundDays} hari sejak pembayaran, selama undangan belum dibagikan ke tamu." },
     { q: "Apakah saya perlu mendaftar untuk mencoba?",
@@ -75,8 +75,12 @@ window.URMEMENTO_CONFIG = {
       a: "Bisa. Tempel daftar nama tamu, lalu ur.memento membuat link personal (dengan nama tamu di cover) yang siap dikirim lewat WhatsApp." },
     { q: "Apakah undangan bisa untuk acara selain pernikahan?",
       a: "Bisa. Tersedia mode Aqiqah, Khitan, Ulang tahun, dan Syukuran dengan tampilan tuan rumah tunggal." },
-    { q: "Data RSVP dan ucapan disimpan di mana?",
-      a: "Pada versi prototipe ini RSVP dan ucapan tersimpan di perangkat pengunjung untuk demonstrasi. Versi produksi menyimpannya di server dan menampilkannya di dasbor Anda." }
+    { q: "Bagaimana RSVP sampai ke saya?",
+      a: "Isi nomor WhatsApp Anda di builder. Saat tamu menekan Kirim, WhatsApp terbuka dengan pesan konfirmasi (nama, hadir atau tidak, jumlah tamu, ucapan) yang siap dikirim ke nomor Anda. RSVP baru tercatat setelah tamu menekan kirim di WhatsApp. Belum ada dasbor atau dinding ucapan bersama; ucapan yang ditulis tamu hanya tampil di perangkatnya sendiri." },
+    { q: "Fitur bertanda “Segera hadir” itu apa?",
+      a: "Fitur yang sudah kami rencanakan tetapi belum bisa dipakai hari ini: dua bahasa, live streaming, undangan dengan kode akses, QR check-in, buku tamu, layar sapa, dan atur meja. Pilihlah paket berdasarkan fitur yang sudah bertanda ✓." },
+    { q: "Bisakah undangan digabung dengan paket foto?",
+      a: "Bisa. ur.memento juga menerima jasa foto (prewedding, wedding, wisuda), dan undangan dapat dipesan bersama. Tanyakan lewat WhatsApp untuk paket dan harga gabungan; harga akan ditulis jelas sebelum Anda setuju." }
   ],
 
   // Isi dengan testimoni ASLI saja. Jika kosong, bagian testimoni disembunyikan otomatis.

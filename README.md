@@ -27,8 +27,9 @@ Spesifikasi lengkap (master prompt yang sudah diisi, token, tabel motion, checkl
 - Kebijakan refund, harga, dan klaim "aktif selamanya" di copy adalah usulan; sesuaikan dengan kebijakan bisnis sebenarnya.
 
 ## Batasan prototipe
-- Tidak ada backend: RSVP/ucapan hanya tersimpan di `localStorage` perangkat pengunjung; data undangan dibawa di URL hash.
-- Fitur paket Eksklusif (QR check-in, buku tamu, atur meja, undangan privat dengan kode akses) tampil di halaman harga tetapi belum diimplementasikan di renderer.
+- Tidak ada backend. RSVP dikirim lewat WhatsApp (`wa.me`) ke nomor yang diisi tuan rumah di builder; tidak ada dasbor. Ucapan hanya tersimpan di `localStorage` perangkat tamu. Data undangan dibawa di URL hash, jadi link tidak bertanda tangan dan mengedit data berarti membuat link baru.
+- Fitur yang belum diimplementasikan ditandai "Segera hadir" di halaman harga (flag `soon` di `js/config.js`): dua bahasa, live streaming, undangan privat dengan kode akses, QR check-in, buku tamu, layar sapa, atur meja. Hapus flag `soon` hanya setelah fiturnya benar-benar ada.
+- Batas paket Coba (aktif 7 hari, watermark) dan batas foto/nama tamu belum ditegakkan otomatis.
 - Foto galeri dan musik memakai link eksternal (belum ada unggah file).
 - Pembayaran belum ada; pemesanan lewat pesan WhatsApp.
 

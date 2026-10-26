@@ -152,5 +152,14 @@
     closing: "Atas kehadiran dan doa restunya kami ucapkan terima kasih.", hashtag: ""
   };
 
-  window.URMEMENTO = { esc, safeUrl, enc, dec, patternURL, THEMES, themeById, applyThemeVars, miniCover, DEMO, DEMO_ACARA };
+  // Nomor WhatsApp -> digit internasional tanpa "+" (0812.. -> 62812..). String kosong bila tidak valid.
+  const waNumber = (raw) => {
+    let n = String(raw == null ? "" : raw).replace(/[^\d+]/g, "").replace(/^\+/, "").replace(/\+/g, "");
+    if (n.startsWith("00")) n = n.slice(2);
+    else if (n.startsWith("0")) n = "62" + n.slice(1);
+    else if (n.startsWith("8")) n = "62" + n;
+    return /^[1-9]\d{8,14}$/.test(n) ? n : "";
+  };
+
+  window.URMEMENTO = { esc, safeUrl, waNumber, enc, dec, patternURL, THEMES, themeById, applyThemeVars, miniCover, DEMO, DEMO_ACARA };
 })();

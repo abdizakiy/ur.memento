@@ -157,9 +157,9 @@
 
   const wishesHTML = (list) => list.length
     ? list.map((w) => `<div class="wish"><b>${esc(w.name)}</b><span class="chip">${esc(w.statusLabel)}</span>${w.msg ? `<p>${esc(w.msg)}</p>` : ""}</div>`).join("")
-    : '<p class="empty">Belum ada ucapan. Jadilah yang pertama.</p>';
+    : '<p class="empty">Ucapan yang Anda tulis akan tampil di sini (hanya di perangkat Anda).</p>';
 
-  const rsvpHTML = (d) => `<section class="sec" id="rsvp"><h2 class="reveal">RSVP & Ucapan</h2><div class="rule"></div>
+  const rsvpHTML = (d) => { const wa = U.waNumber(d.rsvpWa); return `<section class="sec" id="rsvp"><h2 class="reveal">RSVP</h2><div class="rule"></div>
     <p class="lead reveal">Mohon konfirmasi kehadiran Anda.</p>
     <form class="rsvp reveal" id="rsvp-form" autocomplete="off">
       <label>Nama<input name="name" required maxlength="60" value="${esc(d.guest && d.guest !== "Bapak/Ibu/Saudara/i" ? d.guest : "")}"></label>
@@ -170,10 +170,11 @@
       </div>
       <label>Jumlah tamu<select name="count">${[1, 2, 3, 4, 5].map((n) => `<option>${n}</option>`).join("")}</select></label>
       <label>Ucapan & doa<textarea name="msg" maxlength="300"></textarea></label>
-      <button class="btn" type="submit">Kirim</button>
-      <p class="note">Mode demo: RSVP tersimpan di perangkat ini saja.</p>
+      <button class="btn" type="submit">${wa ? "Kirim lewat WhatsApp" : "Kirim"}</button>
+      <p class="note">${wa ? "WhatsApp akan terbuka dengan pesan konfirmasi untuk tuan rumah. Tekan kirim di sana agar RSVP Anda sampai." : "Tuan rumah belum menautkan WhatsApp, jadi ucapan ini hanya tersimpan di perangkat Anda."}</p>
+      <p class="note" id="wa-fallback" hidden></p>
     </form>
-    <div class="wishes" id="wishes">${wishesHTML(loadWishes())}</div></section>`;
+    <div class="wishes" id="wishes">${wishesHTML(loadWishes())}</div></section>`; };
 
   const closingHTML = (d) => `<section class="sec dark closing">
     <p class="lead reveal">${esc(d.closing)}</p>
@@ -232,8 +233,19 @@
       list.unshift({ name: String(f.get("name")).trim(), status: st, statusLabel: labels[st] + (st === "hadir" ? ` · ${f.get("count")} orang` : ""), msg: String(f.get("msg")).trim(), ts: Date.now() });
       saveWishes(list);
       $("#wishes").innerHTML = wishesHTML(list);
+      const wa = U.waNumber(data.rsvpWa);
+      if (wa) {
+        const who = data.type === "acara" ? (data.host?.title || data.host?.name || "acara ini") : "pernikahan " + [data.groom?.nick || data.groom?.name, data.bride?.nick || data.bride?.name].filter(Boolean).join(" & ");
+        const nm = list[0].name, msg = list[0].msg;
+        const text = `Halo, saya ${nm}.\nKonfirmasi kehadiran untuk ${who}: ${list[0].statusLabel}.` + (msg ? `\nUcapan: ${msg}` : "");
+        const url = "https://wa.me/" + wa + "?text=" + encodeURIComponent(text);
+        const w = window.open(url, "_blank", "noopener");
+        const fb = $("#wa-fallback");
+        if (!w && fb) { fb.hidden = false; fb.innerHTML = `Pop-up diblokir. <a href="${esc(url)}" target="_blank" rel="noopener">Buka WhatsApp untuk mengirim RSVP</a>.`; }
+        else if (fb) fb.hidden = true;
+        toast(w ? "Membuka WhatsApp…" : "Buka WhatsApp untuk mengirim");
+      } else toast("Tersimpan di perangkat ini");
       form.reset();
-      toast("Terima kasih, terkirim!");
     });
   }
 

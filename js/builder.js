@@ -37,7 +37,7 @@
       quote: { text: val("quote-text"), src: val("quote-src") },
       story,
       gallery: val("gallery").split("\n").map((l) => l.trim()).filter(Boolean),
-      gifts, music: val("music").trim(), closing: val("closing"), hashtag: val("hashtag")
+      gifts, music: val("music").trim(), rsvpWa: val("rsvp-wa").trim(), closing: val("closing"), hashtag: val("hashtag")
     };
   }
 
@@ -53,9 +53,17 @@
     set("gallery", (d.gallery || []).join("\n"));
     set("music", d.music);
     [1, 2].forEach((n) => { const g = (d.gifts || [])[n - 1] || {}; set(`g${n}-bank`, g.bank); set(`g${n}-no`, g.no); set(`g${n}-name`, g.name); });
-    set("closing", d.closing); set("hashtag", d.hashtag);
+    set("closing", d.closing); set("hashtag", d.hashtag); set("rsvp-wa", d.rsvpWa);
+    waHint();
     applyKindUI();
     drawPicker();
+  }
+
+  function waHint() {
+    const raw = val("rsvp-wa").trim(), n = U.waNumber(raw), el = $("#rsvp-wa-hint");
+    if (!el) return;
+    el.textContent = !raw ? "Tamu yang menekan Kirim akan membuka WhatsApp dengan pesan konfirmasi siap kirim ke nomor ini. Kosongkan bila tidak ingin menerima RSVP."
+      : n ? "RSVP akan dikirim ke +" + n + "." : "Nomor belum valid. Contoh: 0812 3456 7890 atau +62 812 3456 7890.";
   }
 
   function applyKindUI() {
@@ -93,6 +101,7 @@
     if (e.source === frame.contentWindow && e.data && e.data.type === "urmemento:ready") { ready = true; push(); }
   });
   $("#form").addEventListener("input", update);
+  $("#rsvp-wa").addEventListener("input", waHint);
   $("#kind").addEventListener("change", () => {
     const prev = kind;
     kind = val("kind");
