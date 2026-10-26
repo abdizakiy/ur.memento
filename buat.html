@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buat Undangan · ur.memento</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Italiana&family=Jost:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/builder.css">
+</head>
+<body class="builder">
+<header class="bar">
+  <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">u</span>ur.memento</a>
+  <span class="bar-title">Buat undangan</span>
+  <div class="bar-actions">
+    <button class="btn btn-sm btn-ghost" id="reset" type="button"><span class="lbl">Reset</span></button>
+    <button class="btn btn-sm btn-accent" id="copy-link" type="button"><span class="lbl">Salin link</span></button>
+  </div>
+</header>
+
+<div class="tabs" role="tablist" aria-label="Tampilan">
+  <button role="tab" id="tab-form" aria-selected="true" class="on">Isi data</button>
+  <button role="tab" id="tab-prev" aria-selected="false">Pratinjau</button>
+</div>
+
+<div class="layout">
+  <form class="panel" id="form" autocomplete="off" onsubmit="return false">
+
+    <details open>
+      <summary>1 · Template &amp; jenis acara</summary>
+      <div class="body">
+        <div class="tpl-pick" id="tpl-pick" role="radiogroup" aria-label="Template"></div>
+        <label>Jenis acara
+          <select id="kind">
+            <option value="nikah">Pernikahan</option>
+            <option value="aqiqah">Aqiqah</option>
+            <option value="khitan">Khitan</option>
+            <option value="ultah">Ulang tahun</option>
+            <option value="syukuran">Syukuran / acara lain</option>
+          </select>
+        </label>
+      </div>
+    </details>
+
+    <details open id="sec-nikah">
+      <summary>2 · Mempelai</summary>
+      <div class="body">
+        <div class="row2">
+          <label>Nama lengkap pria<input id="groom-name"></label>
+          <label>Nama panggilan<input id="groom-nick"></label>
+        </div>
+        <label>Orang tua pria<input id="groom-parents"></label>
+        <div class="row2">
+          <label>Nama lengkap wanita<input id="bride-name"></label>
+          <label>Nama panggilan<input id="bride-nick"></label>
+        </div>
+        <label>Orang tua wanita<input id="bride-parents"></label>
+      </div>
+    </details>
+
+    <details open id="sec-acara" hidden>
+      <summary>2 · Tuan rumah</summary>
+      <div class="body">
+        <label>Nama tuan rumah / keluarga<input id="host-name"></label>
+        <label>Judul acara<input id="host-title"></label>
+        <label>Kalimat pembuka<textarea id="host-note" rows="3"></textarea></label>
+      </div>
+    </details>
+
+    <details open>
+      <summary>3 · Waktu &amp; tempat</summary>
+      <div class="body">
+        <fieldset id="fs-akad">
+          <legend>Akad nikah</legend>
+          <div class="row2"><label>Tanggal<input type="date" id="akad-date"></label><label>Jam<input type="time" id="akad-time"></label></div>
+          <label>Tempat<input id="akad-place"></label>
+          <label>Alamat<input id="akad-address"></label>
+          <label>Link Google Maps (opsional)<input id="akad-maps" type="url" placeholder="https://maps.app.goo.gl/…"></label>
+        </fieldset>
+        <fieldset>
+          <legend id="lg-resepsi">Resepsi</legend>
+          <div class="row2"><label>Tanggal<input type="date" id="resepsi-date"></label><label>Jam<input type="time" id="resepsi-time"></label></div>
+          <label>Tempat<input id="resepsi-place"></label>
+          <label>Alamat<input id="resepsi-address"></label>
+          <label>Link Google Maps (opsional)<input id="resepsi-maps" type="url" placeholder="https://maps.app.goo.gl/…"></label>
+        </fieldset>
+      </div>
+    </details>
+
+    <details>
+      <summary>4 · Kutipan &amp; cerita</summary>
+      <div class="body">
+        <label>Kutipan / doa<textarea id="quote-text" rows="3"></textarea></label>
+        <label>Sumber kutipan<input id="quote-src"></label>
+        <label id="lb-story">Cerita kami (satu per baris: <code>Judul | Isi cerita</code>)<textarea id="story" rows="4"></textarea></label>
+      </div>
+    </details>
+
+    <details>
+      <summary>5 · Galeri &amp; musik</summary>
+      <div class="body">
+        <label>Link foto (satu per baris, https://…)<textarea id="gallery" rows="4" placeholder="https://contoh.com/foto-1.jpg"></textarea></label>
+        <p class="hint">Kosongkan untuk melihat tampilan placeholder. Pada versi produksi foto diunggah langsung.</p>
+        <label>Link musik (mp3, https://…)<input id="music" type="url" placeholder="https://contoh.com/lagu.mp3"></label>
+      </div>
+    </details>
+
+    <details>
+      <summary>6 · Amplop digital</summary>
+      <div class="body">
+        <fieldset><legend>Rekening 1</legend>
+          <div class="row2"><label>Bank / e-wallet<input id="g1-bank"></label><label>Nomor<input id="g1-no" inputmode="numeric"></label></div>
+          <label>Atas nama<input id="g1-name"></label></fieldset>
+        <fieldset><legend>Rekening 2 (opsional)</legend>
+          <div class="row2"><label>Bank / e-wallet<input id="g2-bank"></label><label>Nomor<input id="g2-no" inputmode="numeric"></label></div>
+          <label>Atas nama<input id="g2-name"></label></fieldset>
+      </div>
+    </details>
+
+    <details>
+      <summary>7 · Penutup</summary>
+      <div class="body">
+        <label>Kalimat penutup<textarea id="closing" rows="3"></textarea></label>
+        <label>Hashtag<input id="hashtag"></label>
+      </div>
+    </details>
+
+    <details open>
+      <summary>8 · Bagikan &amp; pesan</summary>
+      <div class="body">
+        <label>Daftar nama tamu (satu per baris) untuk link personal
+          <textarea id="guests" rows="4" placeholder="Bapak Andi&#10;Ibu Sinta &amp; Keluarga"></textarea></label>
+        <button class="btn btn-sm" id="make-links" type="button">Buat link per tamu</button>
+        <ul class="guest-links" id="guest-links"></ul>
+        <hr>
+        <label>Paket yang diminati
+          <select id="plan"></select>
+        </label>
+        <a class="btn btn-block" id="order" href="#" target="_blank" rel="noopener">Pesan lewat WhatsApp</a>
+        <p class="hint">Pesan WhatsApp berisi ringkasan data dan link undangan Anda. Pembayaran baru dilakukan setelah Anda cocok.</p>
+      </div>
+    </details>
+  </form>
+
+  <section class="preview" id="preview" aria-label="Pratinjau undangan">
+    <div class="pv-bar">
+      <label class="check"><input type="checkbox" id="skip-cover"> Lewati cover</label>
+      <a href="#" id="open-new" target="_blank" rel="noopener">Buka di tab baru ↗</a>
+    </div>
+    <div class="phone"><iframe id="frame" src="undangan.html?skip=0" title="Pratinjau undangan"></iframe></div>
+  </section>
+</div>
+
+<div id="toast" class="toast-b" role="status"></div>
+<script src="js/config.js"></script>
+<script src="js/themes.js"></script>
+<script src="js/builder.js"></script>
+</body>
+</html>

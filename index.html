@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ur.memento · Undangan Digital yang Jujur</title>
+<meta name="description" content="Buat undangan digital pernikahan, aqiqah, khitan, dan syukuran. Harga tertulis jelas tanpa harga coret palsu, bisa dicoba dulu tanpa daftar, aktif selamanya.">
+<meta property="og:title" content="ur.memento · Undangan Digital yang Jujur">
+<meta property="og:description" content="Coba dulu tanpa daftar. Harga jelas, perbandingan paket bersih, refund tertulis.">
+<meta name="theme-color" content="#EFEBE3">
+<script>
+  /* Aktifkan state animasi hanya jika gerak diizinkan; cabut otomatis jika Motion gagal dimuat. */
+  (function () {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || /[?&]motion=off\b/.test(location.search)) return;
+    var h = document.documentElement;
+    h.classList.add("mo");
+    setTimeout(function () { if (!window.__moReady) h.classList.remove("mo"); }, 3500);
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Italiana&family=Jost:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Lewati ke konten</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="ur.memento, beranda" translate="no"><span class="logo-mark" aria-hidden="true">u</span>ur.memento</a>
+    <nav class="links" id="links" aria-label="Utama">
+      <a class="link" href="#template">Template</a>
+      <a class="link" href="#harga">Harga</a>
+      <a class="link" href="#cara">Cara kerja</a>
+      <a class="link" href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm btn-accent" href="buat.html"><span class="lbl">Coba gratis</span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="links"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 02 HERO -->
+  <section class="hero" id="atas">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" data-in>Undangan digital · nikah, aqiqah, khitan, syukuran</p>
+        <h1 aria-label="Undangan digital yang jujur.">
+          <span class="line" aria-hidden="true"><span class="w"><span class="wi">Undangan</span></span> <span class="w"><span class="wi">digital</span></span></span>
+          <span class="line" aria-hidden="true"><span class="w"><span class="wi">yang</span></span> <span class="w"><span class="wi serif">jujur.<svg class="squig" viewBox="0 0 300 30" preserveAspectRatio="none"><path pathLength="1" d="M4 20 C 40 4, 70 28, 110 14 S 180 2, 220 16 S 276 24, 296 8"/></svg></span></span></span>
+        </h1>
+        <p class="hero-lead" data-in>Pilih template, isi data, lihat hasilnya langsung, <b>tanpa daftar</b>. Satu harga per paket. Tanpa harga coret, tanpa biaya admin.</p>
+        <div class="cta-row" data-in>
+          <a class="btn btn-lg btn-accent mag" href="buat.html"><span class="lbl">Buat undangan gratis</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-lg btn-ghost" href="#template"><span class="lbl">Lihat template</span></a>
+        </div>
+        <ul class="facts" data-in>
+          <li>Aktif selamanya</li>
+          <li>Tanpa biaya admin</li>
+          <li data-refund>Refund tertulis</li>
+        </ul>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-wrap" id="phone-wrap">
+          <div class="phone">
+            <iframe src="undangan.html?demo=kencana&amp;embed=1" title="Contoh undangan ur.memento, interaktif" loading="lazy" width="320" height="640"></iframe>
+          </div>
+          <div class="stamp" aria-hidden="true">
+            <svg viewBox="0 0 128 128">
+              <circle class="disc" cx="64" cy="64" r="62"/>
+              <g class="ring"><defs><path id="ring-path" d="M64 64 m-47 0 a47 47 0 1 1 94 0 a47 47 0 1 1 -94 0"/></defs>
+                <text><textPath href="#ring-path">Bayar setelah cocok · Bayar setelah cocok ·</textPath></text></g>
+            </svg>
+            <span class="core">u</span>
+          </div>
+        </div>
+        <p class="demo-note" data-in>Ini undangan sungguhan, bukan gambar. Silakan ketuk dan gulir.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+    <button class="pause" id="pause" type="button" aria-pressed="false" aria-label="Jeda animasi dekoratif"><span aria-hidden="true">II</span></button>
+  </div>
+
+  <!-- 04 JANJI -->
+  <section class="section" id="kenapa">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Kenapa ur.memento</p>
+        <h2>Tiga janji yang kami tulis di depan.</h2>
+        <p>Hal-hal yang sering membingungkan di tempat lain, kami jelaskan sejak halaman pertama.</p>
+      </header>
+      <div class="vows">
+        <article class="vow rv"><span class="n">01</span><h3>Harga yang jujur.</h3><p>Satu harga per paket. Tidak ada harga coret yang berubah-ubah, tidak ada biaya admin pembayaran, masa aktif ditulis jelas.</p></article>
+        <article class="vow rv"><span class="n">02</span><h3>Coba dulu, bayar nanti.</h3><p>Buat undangan lengkap sebelum membayar sepeser pun. Setiap template punya demo hidup yang bisa Anda ketuk sendiri.</p></article>
+        <article class="vow rv"><span class="n">03</span><h3>Tabel yang bersih.</h3><p>Satu tabel, satu layar. Batas foto, nama tamu, dan fitur yang terkunci ditulis per paket tanpa daftar “tidak termasuk” yang berputar-putar.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 TEMPLATE -->
+  <section class="tpl" id="template" aria-labelledby="tpl-h">
+    <div class="tpl-pin" id="tpl-pin">
+      <div class="tpl-sticky">
+        <div class="wrap tpl-top">
+          <div>
+            <p class="eyebrow">Template</p>
+            <h2 id="tpl-h" style="margin-top:14px">Enam gaya, dari adat sampai minimalis.</h2>
+          </div>
+          <div class="tpl-count" aria-hidden="true"><span id="tpl-i">01</span> <small>/ 06</small></div>
+        </div>
+        <div class="tpl-viewport" id="tpl-viewport" tabindex="0" aria-label="Daftar template, dapat digeser">
+          <div class="tpl-track" id="tpl-track"></div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap tpl-extra-wrap"><p class="tpl-extra">Butuh undangan aqiqah, khitan, atau ulang tahun? <a class="link" href="undangan.html?demo=acara" target="_blank" rel="noopener">Lihat contoh mode acara</a>.</p></div>
+  </section>
+
+  <!-- 06 FITUR -->
+  <section class="section" id="fitur">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Fitur</p>
+        <h2>Dari sebar undangan sampai hari-H.</h2>
+        <p>Yang Anda butuhkan, tanpa fitur yang hanya menambah tombol.</p>
+      </header>
+      <ul class="feat">
+        <li class="rv"><span class="k">A</span><h3>Link personal per tamu</h3><p>Tempel daftar nama, dapatkan link dengan nama tamu di cover. Siap kirim lewat WhatsApp.</p></li>
+        <li class="rv"><span class="k">B</span><h3>RSVP &amp; ucapan</h3><p>Tamu konfirmasi kehadiran dan menulis doa langsung dari undangan.</p></li>
+        <li class="rv"><span class="k">C</span><h3>Amplop digital</h3><p>Rekening atau e-wallet dengan tombol salin nomor sekali sentuh.</p></li>
+        <li class="rv"><span class="k">D</span><h3>Simpan ke kalender</h3><p>Satu tombol, acara masuk ke kalender tamu lengkap dengan lokasinya.</p></li>
+        <li class="rv"><span class="k">E</span><h3>Undangan privat</h3><p>Kode akses dan tersembunyi dari mesin pencari untuk acara tertutup.</p></li>
+        <li class="rv"><span class="k">F</span><h3>QR check-in</h3><p>Tamu discan di pintu masuk, daftar hadir tercatat otomatis.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 07 CARA -->
+  <section class="section how" id="cara">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Cara kerja</p>
+        <h2>Tiga langkah, tanpa daftar di awal.</h2>
+      </header>
+      <ol class="steps">
+        <li class="rv"><span class="step-n" aria-hidden="true">1</span><b>Pilih template</b><span class="d">Lihat demo hidupnya, pilih yang paling pas dengan acara Anda.</span></li>
+        <li class="rv"><span class="step-n" aria-hidden="true">2</span><b>Isi data</b><span class="d">Nama, tanggal, lokasi, foto. Hasilnya langsung terlihat di sebelahnya.</span></li>
+        <li class="rv"><span class="step-n" aria-hidden="true">3</span><b>Bagikan atau pesan</b><span class="d">Salin link untuk dicoba. Kalau cocok, pilih paket dan undangan aktif selamanya.</span></li>
+      </ol>
+      <div class="how-cta rv"><a class="btn btn-lg mag" href="buat.html"><span class="lbl">Mulai sekarang</span><span class="arr" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+
+  <!-- 08 HARGA -->
+  <section class="section" id="harga">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Harga</p>
+        <h2>Satu harga per paket. Bayar sekali.</h2>
+        <p>Tidak ada harga coret, tidak ada biaya admin, tidak ada langganan tersembunyi.</p>
+      </header>
+      <div class="plans rv" id="plans"></div>
+      <h3 class="cmp-title rv">Bandingkan semua fitur</h3>
+      <div class="cmp-scroll rv" tabindex="0" aria-label="Tabel perbandingan paket, dapat digeser"><table class="cmp" id="cmp"></table></div>
+      <div class="clear rv">
+        <h3>Yang kami tulis jelas</h3>
+        <ul>
+          <li><b>Masa aktif</b> tertulis per paket di tabel di atas.</li>
+          <li><b>Batas foto &amp; nama tamu</b> berupa angka pasti.</li>
+          <li><b>Paket Coba</b> menyebut yang terkunci: watermark dan aktif 7 hari.</li>
+          <li><b>Biaya admin</b> pembayaran: tidak ada.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 TESTIMONI (tersembunyi jika kosong) -->
+  <section class="section" id="testi" hidden>
+    <div class="wrap">
+      <header class="sec-head rv"><p class="eyebrow">Kata mereka</p><h2>Pasangan yang sudah memakai ur.memento.</h2></header>
+      <div class="testi-grid" id="testi-grid"></div>
+    </div>
+  </section>
+
+  <!-- 10 FAQ -->
+  <section class="section faq" id="faq">
+    <div class="narrow">
+      <header class="sec-head rv" style="grid-template-columns:1fr"><p class="eyebrow">FAQ</p><h2>Pertanyaan yang sering muncul.</h2></header>
+      <div id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- 11 CTA AKHIR -->
+  <section class="final dark">
+    <div class="wrap">
+      <h2 class="rv">Coba dulu, <span class="serif">putuskan</span> belakangan.</h2>
+      <div class="final-row rv">
+        <p>Buat undangan lengkap dalam beberapa menit. Tidak perlu daftar, tidak perlu kartu.</p>
+        <a class="btn btn-lg btn-accent mag" href="buat.html"><span class="lbl">Buat undangan gratis</span><span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer dark">
+  <div class="wrap foot-in">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">u</span>ur.memento</a>
+      <p>Undangan digital yang jujur.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#template">Template</a><a href="#harga">Harga</a><a href="buat.html">Buat undangan</a>
+      <a data-wa href="#">WhatsApp</a><a data-ig href="#">Instagram</a>
+    </nav>
+  </div>
+  <div class="wrap copy">© <span id="yr"></span> ur.memento. Seluruh desain template dibuat ulang dan orisinal.</div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/themes.js"></script>
+<script src="js/site.js"></script>
+<script type="module" src="js/motion.js"></script>
+</body>
+</html>
