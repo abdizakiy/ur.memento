@@ -6,7 +6,7 @@ Taruh aset berlisensi milik Anda di `assets/themes/<id-tema>/` (mis. `assets/the
 gadang: { bg: "bg.webp", border: "border.webp", corner: "corner.webp", scene: "scene.webp" },
 ```
 
-Semua slot opsional. Bila salah satu dari `bg`, `border`, `corner`, `scene` diisi, ilustrasi SVG bawaan di cover dan hero diganti dengan lapisan gambar. Slot lama `top` dan `foot` mengganti SVG bawaan saja.
+Semua slot opsional. `bg`, `border`, dan `corner` tampil **bersama** ilustrasi SVG bawaan tema. Ilustrasi SVG di cover dan hero hanya diganti bila tema menyediakan `scene`. Slot lama `top` dan `foot` mengganti SVG bawaan saja.
 
 ## Spesifikasi
 | Slot | Isi | Ukuran saran | Format | Catatan |

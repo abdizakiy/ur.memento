@@ -71,8 +71,8 @@
     const corner = a.corner ? ["tl", "tr", "bl", "br"].map((p) => `<div class="ly-c ly-${p}"><img src="${esc(a.base + a.corner)}" alt="" decoding="async"></div>`).join("") : "";
     return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${a.border ? `<div class="ly-border" style="background-image:url(&quot;${esc(a.base + a.border)}&quot;)"></div>` : ""}${img("ly-scene", a.scene)}${corner}</div>`;
   };
-  // ilustrasi SVG bawaan hanya diganti bila tema punya gambar corner atau scene; bg dan border tampil bersama SVG
-  const hasLayers = (theme) => { const a = U.artAssets && U.artAssets(theme); return !!(a && (a.corner || a.scene)); };
+  // ilustrasi SVG bawaan hanya diganti bila tema punya gambar scene; bg, border, dan corner tampil bersama SVG
+  const hasLayers = (theme) => { const a = U.artAssets && U.artAssets(theme); return !!(a && a.scene); };
 
   const artTop = (theme, cls) => { if (hasLayers(theme)) return ""; const a = U.art ? U.art(theme, "top") : ""; return a ? `<div class="art ${cls || "art-top"}">${a}</div>` : ""; };
   const artFoot = (theme, cls) => { if (hasLayers(theme)) return ""; const a = U.art ? U.art(theme, "foot") : ""; return a ? `<div class="art ${cls}">${a}</div>` : ""; };
@@ -90,7 +90,7 @@
   const coverHTML = (d, theme) => {
     const ev = [d.akad, d.resepsi].filter((e) => e && e.date).sort((a, b) => a.date.localeCompare(b.date))[0];
     const ab = U.artAssets ? U.artAssets(theme) : null;
-    return `<section class="cover${ab && ab.border ? " has-border" : ""}" id="cover" aria-label="Sampul undangan">
+    return `<section class="cover${ab && ab.border ? " has-border" : ""}${ab && ab.corner ? " has-corner" : ""}" id="cover" aria-label="Sampul undangan">
       <div class="wash" aria-hidden="true"></div>${layers(theme)}${fx(theme)}
       ${artTop(theme, "cover-art-top")}${artFoot(theme, "cover-art-foot")}
       <div class="cover-inner frame-${theme.frame}">
@@ -107,7 +107,7 @@
     const ev = primaryEvent(d) || {};
     const intro = d.type === "acara" ? "Dengan hormat, kami mengundang Anda" : "Kami mengundang Anda untuk hadir dalam pernikahan";
     const ab = U.artAssets ? U.artAssets(theme) : null;
-    return `<section class="sec dark hero${ab && ab.border ? " has-border" : ""}" id="hero">
+    return `<section class="sec dark hero${ab && ab.border ? " has-border" : ""}${ab && ab.corner ? " has-corner" : ""}" id="hero">
       <div class="wash" aria-hidden="true"></div>${layers(theme)}${fx(theme)}${artFoot(theme, "hero-art-foot")}
       <div style="position:relative;z-index:2">
         ${artTop(theme)}
