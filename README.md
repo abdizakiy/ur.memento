@@ -39,7 +39,8 @@ Spesifikasi lengkap (master prompt yang sudah diisi, token, tabel motion, checkl
 
 ## Ilustrasi dan animasi tema
 `js/art.js` menggambar ilustrasi SVG orisinal per tema (hanya 6 tema budaya baru yang sudah punya): `top` (cover, hero, kartu template), `foot` (pita bawah cover dan hero), dan `divider` (pembatas bagian). Warnanya mengikuti variabel tema dan geraknya dari `css/art.css` (goyang, mengambang, berkedip, berputar, plus efek melayang `fx`: petals, sparkle, leaves, stars). Semua gerak berhenti bila perangkat memakai *reduce motion*.
-Memakai aset sendiri (PNG, GIF, WebP, atau SVG): taruh file di `assets/themes/<id-tema>/` lalu daftarkan di objek `ASSETS` pada `js/art.js`, mis. `gadang: { top: "top.gif", foot: "foot.png" }`. File itu menggantikan ilustrasi bawaan untuk slot tersebut. Pastikan Anda berhak memakai aset itu; jangan menyalin gambar dari situs lain.
+Lapisan aset gambar (cara template referensi dibuat): per tema bisa dipasang `bg` (latar), `border` (pita samping), `corner` (bunga sudut, dicerminkan dan digoyang) dan `scene` (ilustrasi dasar) lewat objek `ASSETS` di `js/art.js`. Spesifikasi ukuran, palet per tema, sumber aset yang aman, dan contoh brief ada di [assets/themes/README.md](assets/themes/README.md). Tanpa aset, cover memakai ilustrasi SVG bawaan dan latar cat air prosedural (`.wash`).
+Slot lama untuk satu gambar (PNG, GIF, WebP, atau SVG): taruh file di `assets/themes/<id-tema>/` lalu daftarkan di objek `ASSETS` pada `js/art.js`, mis. `gadang: { top: "top.gif", foot: "foot.png" }`. File itu menggantikan ilustrasi bawaan untuk slot tersebut. Pastikan Anda berhak memakai aset itu; jangan menyalin gambar dari situs lain.
 
 ## Tema
 Batch 1 (6 dasar): Kencana (Adat Jawa), Pura Gading (Adat Bali), Mawar Senja (Floral), Putih Sunyi (Minimalis), Langit Malam (Animasi), Zamrud (Islami).

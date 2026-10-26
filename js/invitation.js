@@ -63,8 +63,18 @@
     return "";
   };
 
-  const artTop = (theme, cls) => { const a = U.art ? U.art(theme, "top") : ""; return a ? `<div class="art ${cls || "art-top"}">${a}</div>` : ""; };
-  const artFoot = (theme, cls) => { const a = U.art ? U.art(theme, "foot") : ""; return a ? `<div class="art ${cls}">${a}</div>` : ""; };
+  // lapisan aset gambar (bg, border, corner, scene); bila ada, menggantikan ilustrasi SVG bawaan
+  const layers = (theme) => {
+    const a = U.artAssets ? U.artAssets(theme) : null;
+    if (!a) return "";
+    const img = (cls, f) => (f ? `<img class="${cls}" src="${esc(a.base + f)}" alt="" decoding="async">` : "");
+    const corner = a.corner ? ["tl", "tr", "bl", "br"].map((p) => `<div class="ly-c ly-${p}"><img src="${esc(a.base + a.corner)}" alt="" decoding="async"></div>`).join("") : "";
+    return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${img("ly-border", a.border)}${img("ly-scene", a.scene)}${corner}</div>`;
+  };
+  const hasLayers = (theme) => !!(U.artAssets && U.artAssets(theme));
+
+  const artTop = (theme, cls) => { if (hasLayers(theme)) return ""; const a = U.art ? U.art(theme, "top") : ""; return a ? `<div class="art ${cls || "art-top"}">${a}</div>` : ""; };
+  const artFoot = (theme, cls) => { if (hasLayers(theme)) return ""; const a = U.art ? U.art(theme, "foot") : ""; return a ? `<div class="art ${cls}">${a}</div>` : ""; };
 
   /* ---------- bagian-bagian ---------- */
   const titleBlock = (d) => {
@@ -79,7 +89,7 @@
   const coverHTML = (d, theme) => {
     const ev = [d.akad, d.resepsi].filter((e) => e && e.date).sort((a, b) => a.date.localeCompare(b.date))[0];
     return `<section class="cover" id="cover" aria-label="Sampul undangan">
-      ${fx(theme)}
+      <div class="wash" aria-hidden="true"></div>${layers(theme)}${fx(theme)}
       ${artTop(theme, "cover-art-top")}${artFoot(theme, "cover-art-foot")}
       <div class="cover-inner frame-${theme.frame}">
         <div class="eyebrow">${d.type === "acara" ? "Undangan" : "The Wedding of"}</div>
@@ -95,7 +105,7 @@
     const ev = primaryEvent(d) || {};
     const intro = d.type === "acara" ? "Dengan hormat, kami mengundang Anda" : "Kami mengundang Anda untuk hadir dalam pernikahan";
     return `<section class="sec dark hero" id="hero">
-      ${fx(theme)}${artFoot(theme, "hero-art-foot")}
+      <div class="wash" aria-hidden="true"></div>${layers(theme)}${fx(theme)}${artFoot(theme, "hero-art-foot")}
       <div style="position:relative;z-index:2">
         ${artTop(theme)}
         <div class="intro reveal">${intro}</div>

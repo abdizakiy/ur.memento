@@ -6,8 +6,12 @@
   const U = window.URMEMENTO;
   if (!U) return;
 
+  // Aset gambar per tema (PNG/WebP/GIF/SVG berlisensi milik Anda), di assets/themes/<id-tema>/.
+  // Lapisan cover dan hero (semua opsional): bg (latar penuh), border (pita vertikal di tepi kiri),
+  // corner (rangkaian bunga di sudut kiri atas; dicerminkan ke tiga sudut lain), scene (ilustrasi dasar, lebar penuh).
+  // Slot lama: top, foot (menggantikan ilustrasi SVG). Lihat assets/themes/README.md untuk ukuran dan brief.
   const ASSETS = {
-    // contoh: gadang: { top: "top.gif" },
+    // contoh: gadang: { bg: "bg.webp", border: "border.webp", corner: "corner.webp", scene: "scene.webp" },
   };
 
   const svg = (inner, vb) => `<svg class="art-svg" viewBox="${vb || "0 0 320 120"}" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">${inner}</svg>`;
@@ -205,6 +209,13 @@
       },
       divider: `${flower(80, 9, 5, "cc")}<path d="M40 9 H66 M94 9 H120" stroke="currentColor" stroke-width="1.2"/>`
     }
+  };
+
+  // lapisan aset gambar milik tema (atau null)
+  U.artAssets = (theme) => {
+    const id = typeof theme === "string" ? theme : theme.id, m = ASSETS[id];
+    if (!m || !(m.bg || m.border || m.corner || m.scene)) return null;
+    return Object.assign({ base: `assets/themes/${id}/` }, m);
   };
 
   // slot "top" / "divider"; kembalikan "" bila tema tidak punya ilustrasi
