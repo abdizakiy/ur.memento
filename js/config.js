@@ -11,7 +11,7 @@ window.URMEMENTO_CONFIG = {
   //   { provider: "plausible",   domain: "abdizakiy.github.io" }
   //   { provider: "umami",       id: "uuid-website-dari-umami" }
   // Uji tanpa provider: buka halaman dengan ?debug=1 dan lihat event di console.
-  analytics: { provider: "" },
+  analytics: { provider: "goatcounter", site: "abdizaki" },
 
   plans: [
     {
