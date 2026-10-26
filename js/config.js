@@ -6,6 +6,13 @@ window.URMEMENTO_CONFIG = {
   instagram: "https://instagram.com/ur.memento",
   refundDays: 7,
 
+  // Statistik tanpa cookie. Kosong = tidak ada skrip pihak ketiga yang dimuat. Isi salah satu:
+  //   { provider: "goatcounter", site: "kodeanda" }            -> https://kodeanda.goatcounter.com
+  //   { provider: "plausible",   domain: "abdizakiy.github.io" }
+  //   { provider: "umami",       id: "uuid-website-dari-umami" }
+  // Uji tanpa provider: buka halaman dengan ?debug=1 dan lihat event di console.
+  analytics: { provider: "" },
+
   plans: [
     {
       id: "coba", name: "Coba", price: 0, note: "Untuk melihat hasilnya dulu",

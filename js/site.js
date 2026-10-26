@@ -43,12 +43,12 @@
   $("#tpl-track").innerHTML = U.THEMES.map((t, i) => {
     const n = names[t.id] || ["Raka", "Anisa"];
     return `<article class="card" data-i="${i}">
-      <a class="card-art" href="undangan.html?demo=${t.id}" target="_blank" rel="noopener" aria-label="Lihat demo ${esc(t.name)} (tab baru)">${U.miniCover(t, n[0], n[1])}</a>
+      <a class="card-art" href="undangan.html?demo=${t.id}" data-track="template_demo" data-track-theme="${t.id}" target="_blank" rel="noopener" aria-label="Lihat demo ${esc(t.name)} (tab baru)">${U.miniCover(t, n[0], n[1])}</a>
       <div class="card-meta"><h3>${esc(t.name)}</h3><span class="tag ${t.premium ? "tag-pro" : ""}">${t.premium ? "Premium · " : ""}${esc(t.tag)}</span></div>
       <p>${esc(t.desc)}</p>
       <div class="card-actions">
-        <a class="btn btn-sm btn-ghost" href="undangan.html?demo=${t.id}" target="_blank" rel="noopener"><span class="lbl">Lihat demo</span></a>
-        <a class="btn btn-sm" href="buat.html?t=${t.id}"><span class="lbl">Pakai tema ini</span></a>
+        <a class="btn btn-sm btn-ghost" href="undangan.html?demo=${t.id}" data-track="template_demo" data-track-theme="${t.id}" target="_blank" rel="noopener"><span class="lbl">Lihat demo</span></a>
+        <a class="btn btn-sm" href="buat.html?t=${t.id}" data-track="template_pick" data-track-theme="${t.id}" data-track-where="galeri"><span class="lbl">Pakai tema ini</span></a>
       </div></article>`;
   }).join("");
 
@@ -62,7 +62,7 @@
       <p class="plan-price" aria-label="${p.price ? "Rp" + idr(p.price) : "Gratis"}">${p.price === 0 ? "Gratis" : `<span class="rp">Rp</span><span data-count="${p.price}">${idr(p.price)}</span>`}</p>
       <span class="plan-unit">${p.price ? "sekali bayar" : "&nbsp;"}</span>
       <ul>${p.bullets.map((b) => typeof b === "string" ? `<li>${esc(b)}</li>` : `<li>${esc(b.t)}${b.soon ? SOON : ""}</li>`).join("")}</ul>
-      <a class="btn btn-block" href="buat.html?plan=${p.id}"><span class="lbl">${esc(p.cta)}</span></a>
+      <a class="btn btn-block" href="buat.html?plan=${p.id}" data-track="plan_cta" data-track-plan="${p.id}"><span class="lbl">${esc(p.cta)}</span></a>
     </article>`).join("");
 
   const cell = (v, soon) => soon && v !== false ? `<span class="soon" aria-label="Segera hadir, belum tersedia">Segera hadir</span>` : v === true ? '<span class="y" aria-label="Termasuk">✓</span>' : v === false ? '<span class="n" aria-label="Tidak termasuk">—</span>' : `<span class="t">${esc(v)}</span>`;

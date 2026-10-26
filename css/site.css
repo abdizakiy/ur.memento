@@ -334,3 +334,24 @@ details p { color: var(--muted); padding: 0 56px 26px 0; max-width: 64ch; }
 .feat h3 .soon { font-size: .625rem; }
 .cmp-note { margin-top: 14px; color: var(--muted); font-size: var(--step-small); }
 .cmp-note .soon { margin-left: 0; margin-right: 4px; }
+
+/* ---------- halaman bundel klien foto ---------- */
+.bundle-hero { padding-bottom: clamp(24px, 4vw, 48px); }
+.bundle-hero h1 { font-size: var(--step-head); letter-spacing: -.025em; margin: 18px 0 20px; max-width: 18ch; }
+.bundle-hero .lead { font-size: var(--step-lead); line-height: 1.4; color: var(--muted); max-width: 46ch; }
+.bundle { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; }
+.bundle-info h2, .bform h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); letter-spacing: -.02em; margin-bottom: 18px; }
+.bundle-info h3 { font-size: 1.125rem; margin: 32px 0 10px; letter-spacing: -.01em; }
+.bsteps { margin: 0; padding: 0; list-style: none; counter-reset: b; display: grid; gap: 14px; }
+.bsteps li { counter-increment: b; position: relative; padding-left: 46px; }
+.bsteps li::before { content: counter(b); position: absolute; left: 0; top: -2px; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 700 .9375rem var(--head); }
+.bnotes { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); }
+.bform { background: var(--raised); border: 1.5px solid var(--ink); border-radius: 22px; padding: clamp(20px, 3vw, 32px); display: grid; gap: 14px; }
+.bform label { display: grid; gap: 6px; font-size: .9375rem; font-weight: 600; color: var(--muted); }
+.bform input, .bform select, .bform textarea { font: 500 1rem var(--font); color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; width: 100%; }
+.bform textarea { resize: vertical; }
+.bform input:focus-visible, .bform select:focus-visible, .bform textarea:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.bform .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.bform .note { font-size: var(--step-small); color: var(--muted); margin: 0; }
+.bform .btn[disabled] { opacity: .5; cursor: not-allowed; }
+@media (max-width: 860px) { .bundle { grid-template-columns: minmax(0, 1fr); } .bform .row2 { grid-template-columns: 1fr; } }

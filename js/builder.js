@@ -84,6 +84,7 @@
     const b = e.target.closest("[data-t]");
     if (!b) return;
     state.theme = b.dataset.t; drawPicker(); update();
+    if (window.URMEMENTO_TRACK) window.URMEMENTO_TRACK("template_pick", { theme: state.theme, where: "builder" });
   });
 
   // ---------- preview ----------
@@ -125,7 +126,10 @@
     try { await navigator.clipboard.writeText(text); toast(msg || "Tersalin"); }
     catch (e) { window.prompt("Salin manual:", text); }
   }
-  $("#copy-link").addEventListener("click", () => copy(shareURL(null), "Link undangan disalin"));
+  const T = (n, p) => window.URMEMENTO_TRACK && window.URMEMENTO_TRACK(n, p);
+  $("#form").addEventListener("input", () => { if (!T.started) { T.started = true; T("builder_start", { template: state && state.theme, kind }); } });
+  $("#order").addEventListener("click", () => T("order_click", { plan: planSel.value, template: state && state.theme }));
+  $("#copy-link").addEventListener("click", () => { T("link_copied", { scope: "umum" }); copy(shareURL(null), "Link undangan disalin"); });
 
   $("#make-links").addEventListener("click", () => {
     const names = val("guests").split("\n").map((s) => s.trim()).filter(Boolean).slice(0, 300);
@@ -133,12 +137,14 @@
     if (!names.length) { ul.innerHTML = '<li><span>Isi nama tamu dulu.</span></li>'; return; }
     ul.innerHTML = names.map((n, i) => `<li><span title="${U.esc(n)}">${U.esc(n)}</span><button type="button" data-i="${i}" data-a="copy">Salin</button><button type="button" data-i="${i}" data-a="wa">WhatsApp</button></li>`).join("");
     ul._names = names;
+    T("guest_links_made", { count: names.length });
   });
   $("#guest-links").addEventListener("click", (e) => {
     const b = e.target.closest("button[data-a]");
     if (!b) return;
     const name = $("#guest-links")._names[+b.dataset.i];
     const link = shareURL(name);
+    T(b.dataset.a === "copy" ? "link_copied" : "guest_wa_click", { scope: "tamu" });
     if (b.dataset.a === "copy") return copy(link, "Link untuk " + name + " disalin");
     const d = readForm();
     const who = d.type === "acara" ? d.host.title : `pernikahan ${d.groom.nick || d.groom.name} & ${d.bride.nick || d.bride.name}`;

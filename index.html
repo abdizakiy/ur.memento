@@ -35,7 +35,7 @@
       <a class="link" href="#cara">Cara kerja</a>
       <a class="link" href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-sm btn-accent" href="buat.html"><span class="lbl">Coba gratis</span></a>
+    <a class="btn btn-sm btn-accent" href="buat.html" data-track="cta_click" data-track-where="nav"><span class="lbl">Coba gratis</span></a>
     <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="links"><span></span><span></span></button>
   </div>
 </header>
@@ -52,8 +52,8 @@
         </h1>
         <p class="hero-lead" data-in>Pilih template, isi data, lihat hasilnya langsung, <b>tanpa daftar</b>. Satu harga per paket. Tanpa harga coret, tanpa biaya admin.</p>
         <div class="cta-row" data-in>
-          <a class="btn btn-lg btn-accent mag" href="buat.html"><span class="lbl">Buat undangan gratis</span><span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-lg btn-ghost" href="#template"><span class="lbl">Lihat template</span></a>
+          <a class="btn btn-lg btn-accent mag" href="buat.html" data-track="cta_click" data-track-where="hero"><span class="lbl">Buat undangan gratis</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-lg btn-ghost" href="#template" data-track="cta_click" data-track-where="hero_template"><span class="lbl">Lihat template</span></a>
         </div>
         <ul class="facts" data-in>
           <li>Aktif selamanya</li>
@@ -152,7 +152,7 @@
         <li class="rv"><span class="step-n" aria-hidden="true">2</span><b>Isi data</b><span class="d">Nama, tanggal, lokasi, foto. Hasilnya langsung terlihat di sebelahnya.</span></li>
         <li class="rv"><span class="step-n" aria-hidden="true">3</span><b>Bagikan atau pesan</b><span class="d">Salin link untuk dicoba. Kalau cocok, pilih paket dan undangan aktif selamanya.</span></li>
       </ol>
-      <div class="how-cta rv"><a class="btn btn-lg mag" href="buat.html"><span class="lbl">Mulai sekarang</span><span class="arr" aria-hidden="true">→</span></a></div>
+      <div class="how-cta rv"><a class="btn btn-lg mag" href="buat.html" data-track="cta_click" data-track-where="cara_kerja"><span class="lbl">Mulai sekarang</span><span class="arr" aria-hidden="true">→</span></a></div>
     </div>
   </section>
 
@@ -168,12 +168,13 @@
       <h3 class="cmp-title rv">Bandingkan semua fitur</h3>
       <div class="cmp-scroll rv" tabindex="0" aria-label="Tabel perbandingan paket, dapat digeser"><table class="cmp" id="cmp"></table></div>
       <p class="cmp-note rv"><span class="soon">Segera hadir</span> berarti fitur itu belum bisa dipakai hari ini. Pilih paket berdasarkan fitur yang sudah bertanda ✓.</p>
+      <p class="cmp-note rv">Klien foto ur.memento? <a class="link" href="bundel.html" data-track="bundle_link" data-track-where="harga">Lihat cara memesan undangan bersama paket foto</a>.</p>
       <div class="clear rv">
         <h3>Yang kami tulis jelas</h3>
         <ul>
           <li><b>Masa aktif</b> tertulis per paket di tabel di atas.</li>
           <li><b>Batas foto &amp; nama tamu</b> berupa angka pasti.</li>
-          <li><b>Paket Coba</b> menyebut yang terkunci: watermark dan aktif 7 hari.</li>
+          <li><b>Paket Coba</b> menyebut batasnya: watermark dan aktif 7 hari (belum diberlakukan otomatis di prototipe ini).</li>
           <li><b>Biaya admin</b> pembayaran: tidak ada.</li>
         </ul>
       </div>
@@ -202,7 +203,7 @@
       <h2 class="rv">Coba dulu, <span class="serif">putuskan</span> belakangan.</h2>
       <div class="final-row rv">
         <p>Buat undangan lengkap dalam beberapa menit. Tidak perlu daftar, tidak perlu kartu.</p>
-        <a class="btn btn-lg btn-accent mag" href="buat.html"><span class="lbl">Buat undangan gratis</span><span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-lg btn-accent mag" href="buat.html" data-track="cta_click" data-track-where="penutup"><span class="lbl">Buat undangan gratis</span><span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -215,14 +216,15 @@
       <p>Undangan digital yang jujur.</p>
     </div>
     <nav class="foot-links" aria-label="Footer">
-      <a href="#template">Template</a><a href="#harga">Harga</a><a href="buat.html">Buat undangan</a>
-      <a data-wa href="#">WhatsApp</a><a data-ig href="#">Instagram</a>
+      <a href="#template">Template</a><a href="#harga">Harga</a><a href="buat.html">Buat undangan</a><a href="bundel.html" data-track="bundle_link" data-track-where="footer">Untuk klien foto</a>
+      <a data-wa data-track="wa_click" data-track-where="footer" href="#">WhatsApp</a><a data-ig href="#">Instagram</a>
     </nav>
   </div>
-  <div class="wrap copy">© <span id="yr"></span> ur.memento. Seluruh desain template dibuat ulang dan orisinal.</div>
+  <div class="wrap copy">© <span id="yr"></span> ur.memento. Seluruh desain template dibuat ulang dan orisinal. <span id="stat-note" hidden></span></div>
 </footer>
 
 <script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
 <script src="js/themes.js"></script>
 <script src="js/site.js"></script>
 <script type="module" src="js/motion.js"></script>

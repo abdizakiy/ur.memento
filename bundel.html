@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undangan + Paket Foto · ur.memento</title>
+<meta name="description" content="Klien foto ur.memento bisa memesan undangan digital bersama paket foto. Harga gabungan ditulis jelas lewat WhatsApp sebelum Anda setuju.">
+<meta property="og:title" content="Undangan + Paket Foto · ur.memento">
+<meta property="og:description" content="Pesan undangan digital bersama paket foto. Harga ditulis jelas sebelum Anda setuju.">
+<meta name="theme-color" content="#FFFEF5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:opsz,wght@9..40,400..800&family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Lora:wght@500..700&family=Dancing+Script:wght@500&family=Italiana&family=Jost:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="bundle-page">
+<a class="skip" href="#main">Lewati ke konten</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="ur.memento, beranda" translate="no"><span class="logo-lock" role="img" aria-label="ur.memento e-Invitation"><span class="wm"></span><span class="sub" aria-hidden="true">e-Invitation</span></span></a>
+    <nav class="links" id="links" aria-label="Utama">
+      <a class="link" href="index.html#template">Template</a>
+      <a class="link" href="index.html#harga">Harga</a>
+      <a class="link" href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm btn-accent" href="buat.html" data-track="cta_click" data-track-where="bundel_nav"><span class="lbl">Coba gratis</span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="links"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section bundle-hero">
+    <div class="wrap">
+      <p class="eyebrow">Untuk klien foto ur.memento</p>
+      <h1>Foto dari sesi Anda, <span class="serif">satu</span> undangan.</h1>
+      <p class="lead">Sudah foto prewedding, wedding, atau wisuda bersama kami? Pesan undangan digital sekalian, dan foto dari sesi Anda dipakai di galerinya.</p>
+    </div>
+  </section>
+
+  <section class="section bundle-main">
+    <div class="wrap bundle">
+      <div class="bundle-info">
+        <h2>Cara kerjanya</h2>
+        <ol class="bsteps">
+          <li><b>Isi formulir.</b> WhatsApp terbuka dengan data Anda; tekan kirim di sana.</li>
+          <li><b>Kami balas dengan harga gabungan secara tertulis.</b> Tidak ada angka yang dipatok di halaman ini, dan tidak ada harga coret.</li>
+          <li><b>Setelah Anda setuju,</b> kami siapkan undangan dengan template pilihan Anda dan foto sesi di galeri.</li>
+        </ol>
+        <h3>Yang perlu Anda tahu sebelum memesan</h3>
+        <ul class="bnotes">
+          <li>Foto masuk ke undangan lewat tautan; unggah langsung belum tersedia.</li>
+          <li>RSVP tamu dikirim lewat WhatsApp ke nomor Anda. Dasbor rekap belum ada.</li>
+          <li>Fitur bertanda <span class="soon">Segera hadir</span> di <a class="link" href="index.html#harga">halaman harga</a> belum bisa dipakai.</li>
+          <li>Refund dan masa aktif mengikuti kebijakan di halaman utama.</li>
+        </ul>
+      </div>
+
+      <form class="bform" id="bform" autocomplete="off" novalidate>
+        <h2>Minta harga gabungan</h2>
+        <label>Nama Anda<input name="name" required maxlength="60" autocomplete="name"></label>
+        <label>Jenis acara
+          <select name="kind">
+            <option>Pernikahan</option><option>Aqiqah</option><option>Khitan</option><option>Ulang tahun</option><option>Syukuran / acara lain</option>
+          </select>
+        </label>
+        <div class="row2">
+          <label>Tanggal acara<input name="date" type="date"></label>
+          <label>Perkiraan tamu<input name="guests" type="number" inputmode="numeric" min="1" max="5000" placeholder="150"></label>
+        </div>
+        <label>Paket foto yang diambil / diminati<input name="photo" maxlength="80" placeholder="mis. Wisuda paket 2, Prewedding"></label>
+        <label>Template favorit<select name="theme" id="b-theme"></select></label>
+        <label>Catatan (opsional)<textarea name="note" rows="3" maxlength="300"></textarea></label>
+        <button class="btn btn-lg btn-block" type="submit" data-track="bundle_submit"><span class="lbl">Kirim lewat WhatsApp</span></button>
+        <p class="note" id="b-note">Data tidak disimpan di situs ini. Isinya hanya menjadi pesan WhatsApp yang Anda kirim sendiri.</p>
+        <p class="note" id="b-fallback" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer dark">
+  <div class="wrap foot-in">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-lock" role="img" aria-label="ur.memento e-Invitation"><span class="wm"></span><span class="sub" aria-hidden="true">e-Invitation</span></span></a>
+      <p>Undangan digital yang jujur.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="index.html#template">Template</a><a href="index.html#harga">Harga</a><a href="buat.html">Buat undangan</a>
+      <a data-wa data-track="wa_click" data-track-where="bundel_footer" href="#">WhatsApp</a><a data-ig href="#">Instagram</a>
+    </nav>
+  </div>
+  <div class="wrap copy">© <span id="yr"></span> ur.memento. <span id="stat-note" hidden></span></div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/themes.js"></script>
+<script src="js/bundel.js"></script>
+</body>
+</html>

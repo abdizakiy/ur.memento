@@ -20,9 +20,13 @@ Spesifikasi lengkap (master prompt yang sudah diisi, token, tabel motion, checkl
 | `index.html` | Landing: hero dengan demo hidup, template, fitur, harga + tabel perbandingan, FAQ |
 | `buat.html` | Builder: pilih template, isi data, pratinjau langsung, link per tamu, pesan via WhatsApp |
 | `undangan.html` | Renderer undangan (`?demo=kencana\|gading\|mawar\|putih\|malam\|zamrud\|acara`, atau `#d=<data>`, `?to=Nama Tamu`) |
+| `bundel.html` | Untuk klien foto: formulir yang membuat pesan WhatsApp ke admin (harga gabungan). Mendukung `?ref=kode` dan `?t=idtema` |
+
+## Analytics (opsional, tanpa cookie)
+`js/analytics.js` tidak memuat apa pun sampai `analytics.provider` di `js/config.js` diisi (`goatcounter`, `plausible`, atau `umami`). Hanya dipasang di halaman pemasaran, builder, dan bundel; halaman undangan untuk tamu tidak dilacak. Mematuhi Do Not Track. Event ditandai dengan atribut `data-track="nama"` (props lewat `data-track-*`) atau `URMEMENTO_TRACK(nama, props)`. Cek tanpa provider: tambahkan `?debug=1` dan lihat console. Jangan kirim nama, nomor, atau isi formulir sebagai props.
 
 ## Yang perlu Anda ubah sebelum rilis
-- `js/config.js` → `whatsapp` (sekarang placeholder `6280000000000`), `instagram`, harga paket, isi tabel fitur, FAQ, `refundDays`.
+- `js/config.js` → `whatsapp` (sekarang placeholder `6280000000000`; selama placeholder, formulir `bundel.html` sengaja dinonaktifkan), `instagram`, harga paket, isi tabel fitur, FAQ, `refundDays`.
 - `js/config.js` → `testimonials`: isi dengan testimoni ASLI. Selama kosong, bagian testimoni disembunyikan otomatis.
 - Kebijakan refund, harga, dan klaim "aktif selamanya" di copy adalah usulan; sesuaikan dengan kebijakan bisnis sebenarnya.
 
