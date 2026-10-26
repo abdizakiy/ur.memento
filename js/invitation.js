@@ -69,7 +69,7 @@
     if (!a) return "";
     const img = (cls, f) => (f ? `<img class="${cls}" src="${esc(a.base + f)}" alt="" decoding="async">` : "");
     const corner = a.corner ? ["tl", "tr", "bl", "br"].map((p) => `<div class="ly-c ly-${p}"><img src="${esc(a.base + a.corner)}" alt="" decoding="async"></div>`).join("") : "";
-    return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${img("ly-border", a.border)}${img("ly-scene", a.scene)}${corner}</div>`;
+    return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${a.border ? `<div class="ly-border" style="background-image:url(&quot;${esc(a.base + a.border)}&quot;)"></div>` : ""}${img("ly-scene", a.scene)}${corner}</div>`;
   };
   const hasLayers = (theme) => !!(U.artAssets && U.artAssets(theme));
 
@@ -88,7 +88,8 @@
 
   const coverHTML = (d, theme) => {
     const ev = [d.akad, d.resepsi].filter((e) => e && e.date).sort((a, b) => a.date.localeCompare(b.date))[0];
-    return `<section class="cover" id="cover" aria-label="Sampul undangan">
+    const ab = U.artAssets ? U.artAssets(theme) : null;
+    return `<section class="cover${ab && ab.border ? " has-border" : ""}" id="cover" aria-label="Sampul undangan">
       <div class="wash" aria-hidden="true"></div>${layers(theme)}${fx(theme)}
       ${artTop(theme, "cover-art-top")}${artFoot(theme, "cover-art-foot")}
       <div class="cover-inner frame-${theme.frame}">
@@ -104,7 +105,8 @@
   const heroHTML = (d, theme) => {
     const ev = primaryEvent(d) || {};
     const intro = d.type === "acara" ? "Dengan hormat, kami mengundang Anda" : "Kami mengundang Anda untuk hadir dalam pernikahan";
-    return `<section class="sec dark hero" id="hero">
+    const ab = U.artAssets ? U.artAssets(theme) : null;
+    return `<section class="sec dark hero${ab && ab.border ? " has-border" : ""}" id="hero">
       <div class="wash" aria-hidden="true"></div>${layers(theme)}${fx(theme)}${artFoot(theme, "hero-art-foot")}
       <div style="position:relative;z-index:2">
         ${artTop(theme)}

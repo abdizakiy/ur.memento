@@ -12,6 +12,7 @@
   // Slot lama: top, foot (menggantikan ilustrasi SVG). Lihat assets/themes/README.md untuk ukuran dan brief.
   const ASSETS = {
     // contoh: gadang: { bg: "bg.webp", border: "border.webp", corner: "corner.webp", scene: "scene.webp" },
+    kencana: { bg: "bg.webp", border: "border.webp" }, // batik CC0, lihat assets/themes/LICENSES.md
   };
 
   const svg = (inner, vb) => `<svg class="art-svg" viewBox="${vb || "0 0 320 120"}" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">${inner}</svg>`;

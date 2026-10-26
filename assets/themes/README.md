@@ -12,7 +12,7 @@ Semua slot opsional. Bila salah satu dari `bg`, `border`, `corner`, `scene` diis
 | Slot | Isi | Ukuran saran | Format | Catatan |
 |---|---|---|---|---|
 | `bg` | latar penuh cover dan hero (cat air, tekstur kertas, kain) | 1080 x 2340 | WebP/JPG, di bawah 250 KB | ditutup `object-fit: cover`; sisakan area tengah yang tenang untuk teks |
-| `border` | pita vertikal motif (songket, batik, ukiran) di tepi kiri | 271 x 2647 | WebP/PNG transparan | memakai 19% lebar layar, direntang setinggi layar |
+| `border` | pita motif (songket, batik, ukiran) di tepi kiri | ubin lebar 240 sampai 400 px, tinggi bebas | WebP/PNG transparan | memakai 19% lebar layar dan **diulang ke bawah**; buat ubin yang sambungan atas-bawahnya mulus (mis. dicerminkan) |
 | `corner` | rangkaian bunga/daun/ornamen di **sudut kiri atas** | 807 x 794 | WebP/PNG transparan | otomatis dicerminkan ke tiga sudut lain dan digoyang pelan; gambar harus mendukung dicerminkan (tanpa teks) |
 | `scene` | ilustrasi dasar (rumah adat, gapura, siluet) lebar penuh | 1080 x 600 | WebP/PNG transparan | tinggi dibatasi 34% layar; letakkan objek menempel ke tepi bawah |
 
@@ -27,6 +27,8 @@ Semua gerak berhenti bila perangkat memakai *reduce motion*. GIF dan APNG boleh 
 | Dayak Enggang | `dayak` | #1B1613 | #F3C94F | merah #D8453A |
 | Songket Ungu | `songket` | #34174A | #F3DDA0 | emas #E5B94E |
 | Washi Sakura | `sakura` | #1F2A44 | #F2EDE0 | vermilion #E0513F |
+
+Catat setiap aset yang dipasang di [LICENSES.md](LICENSES.md).
 
 ## Dari mana asetnya
 Kekayaan visual template referensi berasal dari gambar lukis profesional. Sumber yang aman:
