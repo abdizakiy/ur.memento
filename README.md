@@ -12,7 +12,7 @@ Lalu buka http://localhost:5180
 Spesifikasi lengkap (master prompt yang sudah diisi, token, tabel motion, checklist audit) ada di [DESIGN.md](DESIGN.md).
 - Referensi: motion.ayprojex.com (tipografi raksasa, paper/ink/aksen, pin horizontal, tombol magnetik), 21st.dev, ui-ux-pro-max, Vercel Web Interface Guidelines.
 - Motion library: [Motion](https://motion.dev) 14.6.0 via ESM CDN (`js/motion.js`). Jika CDN gagal atau pengguna memilih reduced motion, halaman tampil statis dan lengkap.
-- Font: Bricolage Grotesque + Instrument Serif (Google Fonts).
+- Identitas visual mengikuti akun Instagram @ur.memento: palet lemon `#ECEF88`, cokelat zaitun `#3A3010`, putih hangat `#FFFEF5`, emas `#A68620`; font Lora (judul) + DM Sans (body) + Allura (script). Font persisnya di logo asli belum diketahui; Lora dan Allura adalah padanan terdekat di Google Fonts.
 
 ## Halaman
 | File | Fungsi |
