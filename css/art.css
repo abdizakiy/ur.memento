@@ -80,3 +80,5 @@
 @media (prefers-reduced-motion: reduce) { .ly-c img { animation: none !important; } }
 .cover.has-border .cover-inner { width: 81%; margin-left: 19%; }
 .hero.has-border { padding-left: calc(19% + 20px); }
+.cover.has-border .cover-art-top, .cover.has-border .cover-art-foot { left: 19%; }
+.hero.has-border .hero-art-foot { left: 19%; }

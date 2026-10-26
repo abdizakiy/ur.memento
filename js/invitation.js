@@ -71,7 +71,8 @@
     const corner = a.corner ? ["tl", "tr", "bl", "br"].map((p) => `<div class="ly-c ly-${p}"><img src="${esc(a.base + a.corner)}" alt="" decoding="async"></div>`).join("") : "";
     return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${a.border ? `<div class="ly-border" style="background-image:url(&quot;${esc(a.base + a.border)}&quot;)"></div>` : ""}${img("ly-scene", a.scene)}${corner}</div>`;
   };
-  const hasLayers = (theme) => !!(U.artAssets && U.artAssets(theme));
+  // ilustrasi SVG bawaan hanya diganti bila tema punya gambar corner atau scene; bg dan border tampil bersama SVG
+  const hasLayers = (theme) => { const a = U.artAssets && U.artAssets(theme); return !!(a && (a.corner || a.scene)); };
 
   const artTop = (theme, cls) => { if (hasLayers(theme)) return ""; const a = U.art ? U.art(theme, "top") : ""; return a ? `<div class="art ${cls || "art-top"}">${a}</div>` : ""; };
   const artFoot = (theme, cls) => { if (hasLayers(theme)) return ""; const a = U.art ? U.art(theme, "foot") : ""; return a ? `<div class="art ${cls}">${a}</div>` : ""; };
