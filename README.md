@@ -37,6 +37,10 @@ Spesifikasi lengkap (master prompt yang sudah diisi, token, tabel motion, checkl
 - Foto galeri dan musik memakai link eksternal (belum ada unggah file).
 - Pembayaran belum ada; pemesanan lewat pesan WhatsApp.
 
+## Ilustrasi dan animasi tema
+`js/art.js` menggambar ilustrasi SVG orisinal per tema (hanya 6 tema budaya baru yang sudah punya): `top` (cover, hero, kartu template), `foot` (pita bawah cover dan hero), dan `divider` (pembatas bagian). Warnanya mengikuti variabel tema dan geraknya dari `css/art.css` (goyang, mengambang, berkedip, berputar, plus efek melayang `fx`: petals, sparkle, leaves, stars). Semua gerak berhenti bila perangkat memakai *reduce motion*.
+Memakai aset sendiri (PNG, GIF, WebP, atau SVG): taruh file di `assets/themes/<id-tema>/` lalu daftarkan di objek `ASSETS` pada `js/art.js`, mis. `gadang: { top: "top.gif", foot: "foot.png" }`. File itu menggantikan ilustrasi bawaan untuk slot tersebut. Pastikan Anda berhak memakai aset itu; jangan menyalin gambar dari situs lain.
+
 ## Tema
 Batch 1 (6 dasar): Kencana (Adat Jawa), Pura Gading (Adat Bali), Mawar Senja (Floral), Putih Sunyi (Minimalis), Langit Malam (Animasi), Zamrud (Islami).
 Batch 2 (adat dan budaya): Rumah Gadang (Minang, pola pucuk rebung), Jawa Pastel (parang), Galungan (Bali, poleng), Dayak Enggang (spiral Dayak), Songket Ungu (Melayu), Washi Sakura (Jepang, seigaiha).

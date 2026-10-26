@@ -98,42 +98,42 @@
     {
       id: "gadang", name: "Rumah Gadang", cat: "Adat", tag: "Adat Minang", premium: false,
       desc: "Merah marun terang dan emas dengan pola pucuk rebung.",
-      v: { bg: "#FBF3E4", bg2: "#7D1220", ink: "#2B1411", muted: "#76564D", accent: "#8F6A12", card: "#FFF8EA", ondark: "#F5E2AE", line: "#E6D3AA" },
+      v: { bg: "#FBF3E4", bg2: "#7D1220", ink: "#2B1411", muted: "#76564D", accent: "#8F6A12", card: "#FFF8EA", ondark: "#F5E2AE", line: "#E6D3AA", glow: "#E9C46A" },
       fonts: { display: "'Cinzel', serif", body: "'Jost', sans-serif", script: "'Pinyon Script', cursive" },
-      pattern: "rebung", frame: "double", fx: null, dark: false
+      pattern: "rebung", frame: "double", fx: "sparkle", dark: false
     },
     {
       id: "pastel", name: "Jawa Pastel", cat: "Adat", tag: "Adat Jawa", premium: false,
       desc: "Hijau sage dan mawar debu dengan gelombang parang yang lembut.",
-      v: { bg: "#FBF7F0", bg2: "#C5D1BE", ink: "#2F3A2D", muted: "#66705F", accent: "#A25D6E", card: "#FFFDF8", ondark: "#2F3A2D", line: "#E5E0D2" },
+      v: { bg: "#FBF7F0", bg2: "#C5D1BE", ink: "#2F3A2D", muted: "#66705F", accent: "#A25D6E", card: "#FFFDF8", ondark: "#2F3A2D", line: "#E5E0D2", glow: "#A25D6E", fx: "#EBB7C0" },
       fonts: { display: "'Cormorant Garamond', serif", body: "'Jost', sans-serif", script: "'Great Vibes', cursive" },
-      pattern: "parang", frame: "thin", fx: null, dark: false
+      pattern: "parang", frame: "thin", fx: "petals", dark: false
     },
     {
       id: "galungan", name: "Galungan", cat: "Adat", tag: "Adat Bali", premium: false,
       desc: "Hijau daun dan kuning janur dengan pola poleng.",
-      v: { bg: "#FFFBEC", bg2: "#1F3B2A", ink: "#23301F", muted: "#6B7050", accent: "#8A6205", card: "#FFFFF6", ondark: "#F7E9A5", line: "#EBDDA2" },
+      v: { bg: "#FFFBEC", bg2: "#1F3B2A", ink: "#23301F", muted: "#6B7050", accent: "#8A6205", card: "#FFFFF6", ondark: "#F7E9A5", line: "#EBDDA2", glow: "#F2C94C", fx: "#E8C547" },
       fonts: { display: "'Cinzel', serif", body: "'Jost', sans-serif", script: "'Great Vibes', cursive" },
-      pattern: "poleng", frame: "double", fx: null, dark: false
+      pattern: "poleng", frame: "double", fx: "leaves", dark: false
     },
     {
       id: "dayak", name: "Dayak Enggang", cat: "Adat", tag: "Adat Dayak", premium: false,
       desc: "Hitam, merah, dan kuning dengan spiral khas Dayak.",
-      v: { bg: "#F7EFDF", bg2: "#1B1613", ink: "#241B15", muted: "#6F5E4D", accent: "#B3261E", card: "#FFF9EC", ondark: "#F3C94F", line: "#E4D4B3" },
+      v: { bg: "#F7EFDF", bg2: "#1B1613", ink: "#241B15", muted: "#6F5E4D", accent: "#B3261E", card: "#FFF9EC", ondark: "#F3C94F", line: "#E4D4B3", glow: "#D8453A" },
       fonts: { display: "'Cinzel', serif", body: "'Jost', sans-serif", script: "'Cinzel', serif" },
-      pattern: "dayak", frame: "double", fx: null, dark: false
+      pattern: "dayak", frame: "double", fx: "sparkle", dark: false
     },
     {
       id: "songket", name: "Songket Ungu", cat: "Adat", tag: "Songket Melayu", premium: false,
       desc: "Ungu tua dan emas dengan tenun berlian bertingkat.",
-      v: { bg: "#FAF4E8", bg2: "#34174A", ink: "#2A1A33", muted: "#6F5F78", accent: "#80560A", card: "#FFFAF0", ondark: "#F3DDA0", line: "#E3D3B2" },
+      v: { bg: "#FAF4E8", bg2: "#34174A", ink: "#2A1A33", muted: "#6F5F78", accent: "#80560A", card: "#FFFAF0", ondark: "#F3DDA0", line: "#E3D3B2", glow: "#E5B94E" },
       fonts: { display: "'Cormorant Garamond', serif", body: "'Jost', sans-serif", script: "'Pinyon Script', cursive" },
-      pattern: "songket", frame: "double", fx: null, dark: false
+      pattern: "songket", frame: "double", fx: "sparkle", dark: false
     },
     {
       id: "sakura", name: "Washi Sakura", cat: "Modern", tag: "Jepang", premium: false,
       desc: "Krem washi, biru indigo, dan kelopak sakura yang jatuh.",
-      v: { bg: "#FBF8F1", bg2: "#1F2A44", ink: "#1F2430", muted: "#6A6F7C", accent: "#B5392B", card: "#FFFEFA", ondark: "#F2EDE0", line: "#E5DFD0", fx: "#F2B8C6" },
+      v: { bg: "#FBF8F1", bg2: "#1F2A44", ink: "#1F2430", muted: "#6A6F7C", accent: "#B5392B", card: "#FFFEFA", ondark: "#F2EDE0", line: "#E5DFD0", fx: "#F2B8C6", glow: "#E0513F" },
       fonts: { display: "'Shippori Mincho', serif", body: "'Jost', sans-serif", script: "'Shippori Mincho', serif" },
       pattern: "seigaiha", frame: "thin", fx: "petals", dark: false
     }
@@ -152,6 +152,7 @@
     el.style.setProperty("--ondark", v.ondark);
     el.style.setProperty("--line", v.line);
     el.style.setProperty("--fx", v.fx || v.accent);
+    el.style.setProperty("--glow", v.glow || v.accent);
     el.style.setProperty("--display", theme.fonts.display);
     el.style.setProperty("--body", theme.fonts.body);
     el.style.setProperty("--script", theme.fonts.script);
@@ -160,14 +161,17 @@
     el.style.setProperty("--pattern-light", patternURL(theme.pattern, v.accent, 0.2));
   };
 
+  const U_art = (theme) => { const a = window.URMEMENTO && window.URMEMENTO.art ? window.URMEMENTO.art(theme, "top") : ""; return a ? `<div class="mini-art">${a}</div>` : ""; };
+
   // Cover mini untuk kartu galeri & pemilih template.
   const miniCover = (theme, a, b) => {
     const v = theme.v;
     const style = `--bg:${v.bg};--bg2:${v.bg2};--ink:${v.ink};--accent:${v.accent};--ondark:${v.ondark};--display:${theme.fonts.display};--script:${theme.fonts.script};` +
-      `--pat:${patternURL(theme.pattern, v.ondark, 0.2)};`;
+      `--pat:${patternURL(theme.pattern, v.ondark, 0.2)};--glow:${v.glow || v.accent};--fx:${v.fx || v.accent};`;
     const light = !theme.dark && (theme.id === "mawar" || theme.id === "putih");
     return `<div class="mini mini-${theme.id} ${light ? "mini-light" : ""} ${theme.fx ? "mini-fx-" + theme.fx : ""}" style="${style}" aria-hidden="true">
       <div class="mini-frame mini-frame-${theme.frame}">
+        ${U_art(theme)}
         <small>The Wedding of</small>
         <strong>${esc(a)}</strong><em>&amp;</em><strong>${esc(b)}</strong>
         <span>20 · 03 · 2027</span>

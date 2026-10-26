@@ -50,8 +50,21 @@
       for (let i = 0; i < 12; i++) s += `<i class="petal" style="left:${Math.random() * 100}%;animation-duration:${9 + Math.random() * 8}s;animation-delay:${(-Math.random() * 12).toFixed(1)}s;--dx:${(Math.random() * 80 - 40).toFixed(0)}px"></i>`;
       return `<div class="fx" aria-hidden="true">${s}</div>`;
     }
+    if (theme.fx === "sparkle") {
+      let s = "";
+      for (let i = 0; i < 16; i++) s += `<i class="spark" style="left:${(Math.random() * 100).toFixed(0)}%;animation-duration:${6 + Math.random() * 7}s;animation-delay:${(-Math.random() * 10).toFixed(1)}s;--dx:${(Math.random() * 50 - 25).toFixed(0)}px"></i>`;
+      return `<div class="fx" aria-hidden="true">${s}</div>`;
+    }
+    if (theme.fx === "leaves") {
+      let s = "";
+      for (let i = 0; i < 10; i++) s += `<i class="leaf" style="left:${Math.random() * 100}%;animation-duration:${10 + Math.random() * 8}s;animation-delay:${(-Math.random() * 12).toFixed(1)}s;--dx:${(Math.random() * 70 - 35).toFixed(0)}px"></i>`;
+      return `<div class="fx" aria-hidden="true">${s}</div>`;
+    }
     return "";
   };
+
+  const artTop = (theme, cls) => { const a = U.art ? U.art(theme, "top") : ""; return a ? `<div class="art ${cls || "art-top"}">${a}</div>` : ""; };
+  const artFoot = (theme, cls) => { const a = U.art ? U.art(theme, "foot") : ""; return a ? `<div class="art ${cls}">${a}</div>` : ""; };
 
   /* ---------- bagian-bagian ---------- */
   const titleBlock = (d) => {
@@ -67,6 +80,7 @@
     const ev = [d.akad, d.resepsi].filter((e) => e && e.date).sort((a, b) => a.date.localeCompare(b.date))[0];
     return `<section class="cover" id="cover" aria-label="Sampul undangan">
       ${fx(theme)}
+      ${artTop(theme, "cover-art-top")}${artFoot(theme, "cover-art-foot")}
       <div class="cover-inner frame-${theme.frame}">
         <div class="eyebrow">${d.type === "acara" ? "Undangan" : "The Wedding of"}</div>
         ${titleBlock(d)}
@@ -81,8 +95,9 @@
     const ev = primaryEvent(d) || {};
     const intro = d.type === "acara" ? "Dengan hormat, kami mengundang Anda" : "Kami mengundang Anda untuk hadir dalam pernikahan";
     return `<section class="sec dark hero" id="hero">
-      ${fx(theme)}
+      ${fx(theme)}${artFoot(theme, "hero-art-foot")}
       <div style="position:relative;z-index:2">
+        ${artTop(theme)}
         <div class="intro reveal">${intro}</div>
         <div class="reveal">${titleBlock(d)}</div>
         <div class="when reveal">${esc(fmtDate(ev.date))}</div>
@@ -192,6 +207,9 @@
 
     app.innerHTML = coverHTML(d, theme) + heroHTML(d, theme) + quoteHTML(d) + coupleHTML(d) + eventsHTML(d) +
       storyHTML(d) + galleryHTML(d) + giftHTML(d) + rsvpHTML(d) + closingHTML(d);
+
+    const divider = U.art ? U.art(theme, "divider") : "";
+    if (divider) app.querySelectorAll(".rule").forEach((r) => { r.classList.add("rule-art"); r.innerHTML = divider; });
 
     const cover = $("#cover");
     if (opts.skipCover) {
