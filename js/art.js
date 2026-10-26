@@ -16,6 +16,14 @@
     pastel: { bg: "bg.webp", border: "border.webp", corner: "corner.webp" },
     mawar: { corner: "corner.webp" },
     gadang: { corner: "corner.webp" }, // mawar Redouté CC0 (Cleveland Museum of Art)
+    zamrud: { top: "top.webp", border: "border.webp" },
+    gading: { bg: "bg.webp", border: "border.webp" },
+    galungan: { bg: "bg.webp", border: "border.webp" },
+    dayak: { bg: "bg.webp", border: "border.webp" },
+    songket: { bg: "bg.webp", border: "border.webp" },
+    sakura: { corner: "corner.webp" },
+    putih: { corner: "corner.webp" },
+    malam: { bg: "bg.webp" },
   };
 
   const svg = (inner, vb) => `<svg class="art-svg" viewBox="${vb || "0 0 320 120"}" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">${inner}</svg>`;
