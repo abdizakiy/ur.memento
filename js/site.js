@@ -40,6 +40,9 @@
 
   // kartu template
   const names = { kencana: ["Raka", "Anisa"], gading: ["Wayan", "Ayu"], mawar: ["Dimas", "Salsa"], putih: ["Arya", "Nadia"], malam: ["Bima", "Laras"], zamrud: ["Fikri", "Aisyah"] };
+  const nTpl = U.THEMES.length;
+  const tplH = $("#tpl-h"); if (tplH) tplH.textContent = `${nTpl} gaya, dari adat sampai modern.`;
+  const tplTotal = document.querySelector(".tpl-count small"); if (tplTotal) tplTotal.textContent = "/ " + String(nTpl).padStart(2, "0");
   $("#tpl-track").innerHTML = U.THEMES.map((t, i) => {
     const n = names[t.id] || ["Raka", "Anisa"];
     return `<article class="card" data-i="${i}">

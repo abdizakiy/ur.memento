@@ -38,4 +38,6 @@ Spesifikasi lengkap (master prompt yang sudah diisi, token, tabel motion, checkl
 - Pembayaran belum ada; pemesanan lewat pesan WhatsApp.
 
 ## Tema
-Kencana (Adat Jawa), Pura Gading (Adat Bali), Mawar Senja (Floral), Putih Sunyi (Minimalis), Langit Malam (Animasi), Zamrud (Islami). Semua dibuat ulang dengan CSS/SVG orisinal, tanpa aset dari situs referensi. Tema baru: tambah objek di `THEMES` pada `js/themes.js`.
+Batch 1 (6 dasar): Kencana (Adat Jawa), Pura Gading (Adat Bali), Mawar Senja (Floral), Putih Sunyi (Minimalis), Langit Malam (Animasi), Zamrud (Islami).
+Batch 2 (adat dan budaya): Rumah Gadang (Minang, pola pucuk rebung), Jawa Pastel (parang), Galungan (Bali, poleng), Dayak Enggang (spiral Dayak), Songket Ungu (Melayu), Washi Sakura (Jepang, seigaiha).
+Semua dibuat ulang dengan CSS/SVG orisinal dari motif budaya umum, tanpa aset dari situs referensi. Tema baru: tambah objek di `THEMES` pada `js/themes.js` (palet `v`, font, `pattern`, `frame`, `fx`); pola SVG baru ditambah di `patternURL`. Cek kontras: teks aksen di atas `bg` dan putih di atas `accent` minimal 4,5:1.

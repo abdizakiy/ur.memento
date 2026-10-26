@@ -55,7 +55,7 @@ Spasi: 4 8 12 16 24 32 48 64 96 128 160. Tombol pill, kartu radius kecil (8px) d
 
 ## 5. Struktur halaman
 01 Nav (sticky, border muncul saat scroll) · 02 Hero (H1 raksasa, demo undangan di ponsel, cap berputar) ·
-03 Marquee jenis acara & gaya · 04 Tiga janji (baris editorial bernomor) · 05 Template (pin horizontal, 6 template) ·
+03 Marquee jenis acara & gaya · 04 Tiga janji (baris editorial bernomor) · 05 Template (pin horizontal, jumlah mengikuti `THEMES`) ·
 06 Fitur (daftar bergaris) · 07 Cara kerja (numeral outline) · 08 Harga (hitung naik + tabel perbandingan) ·
 09 Testimoni (hanya jika data asli ada) · 10 FAQ · 11 CTA akhir (inversi ink) · 12 Footer.
 
@@ -70,7 +70,7 @@ INTENSITY       = "Medium-rendah"
 | Reveal | Fade + naik 24px saat masuk viewport (sekali) | 0.8s / ease-expo |
 | Scroll progress | Bar tipis di atas, scaleX | linear |
 | Hero ponsel | Parallax ringan (-60px) | linear, scroll-linked |
-| Template | Scroll vertikal menggeser track horizontal (pin), penghitung 01/06 | linear, scroll-linked |
+| Template | Scroll vertikal menggeser track horizontal (pin), penghitung 01/N (N = jumlah tema) | linear, scroll-linked |
 | Harga | Angka hitung naik 0 → harga | 1.1s / ease-out |
 | Tombol utama | Magnetik (spring) hanya pointer halus | spring 220/18 |
 | Marquee, cap | CSS translate/rotate kontinu; jeda saat hover | 40s / 28s linear |

@@ -32,11 +32,23 @@
       kawung: [44, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1"><ellipse cx="22" cy="11" rx="6" ry="10"/><ellipse cx="22" cy="33" rx="6" ry="10"/><ellipse cx="11" cy="22" rx="10" ry="6"/><ellipse cx="33" cy="22" rx="10" ry="6"/></g><circle cx="22" cy="22" r="1.8" fill="${c}" fill-opacity="${o}"/>`],
       lattice: [36, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1"><path d="M18 2 L34 18 L18 34 L2 18 Z"/><path d="M18 9 L27 18 L18 27 L9 18 Z"/></g><circle cx="18" cy="18" r="1.6" fill="${c}" fill-opacity="${o}"/>`],
       bloom: [64, `<g transform="translate(32 32)" fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1">${[0, 72, 144, 216, 288].map((r) => `<ellipse cx="0" cy="-10" rx="5" ry="11" transform="rotate(${r})"/>`).join("")}<circle r="2.2" fill="${c}" fill-opacity="${o}"/></g>`],
-      khatam: [52, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1"><rect x="13" y="13" width="26" height="26"/><rect x="13" y="13" width="26" height="26" transform="rotate(45 26 26)"/></g>`]
+      khatam: [52, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1"><rect x="13" y="13" width="26" height="26"/><rect x="13" y="13" width="26" height="26" transform="rotate(45 26 26)"/></g>`],
+      // Minang: deretan segitiga pucuk rebung
+      rebung: [40, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1"><path d="M0 40 L10 12 L20 40 M20 40 L30 12 L40 40"/><path d="M6 40 L10 26 L14 40 M26 40 L30 26 L34 40"/></g><circle cx="10" cy="7" r="1.5" fill="${c}" fill-opacity="${o}"/><circle cx="30" cy="7" r="1.5" fill="${c}" fill-opacity="${o}"/>`],
+      // Jawa: gelombang diagonal bersambung ala parang
+      parang: [48, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1.1" stroke-linecap="round"><path d="M0 48 C18 48 18 24 24 24 S30 0 48 0"/></g><circle cx="24" cy="24" r="1.7" fill="${c}" fill-opacity="${o}"/>`],
+      // Bali: kotak hitam-putih poleng
+      poleng: [24, `<rect width="12" height="12" fill="${c}" fill-opacity="${o * 0.7}"/><rect x="12" y="12" width="12" height="12" fill="${c}" fill-opacity="${o * 0.7}"/>`],
+      // Dayak: spiral dan gigi segitiga di sudut
+      dayak: [56, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1.2" stroke-linecap="round"><path d="M28 28 a2 2 0 0 1 4 0 a4 4 0 0 1 -8 0 a6 6 0 0 1 12 0 a8 8 0 0 1 -16 0"/></g><path d="M0 0h8l-4 8z M48 0h8l-4 8z M0 48h8l-4 8z M48 48h8l-4 8z" fill="${c}" fill-opacity="${o}"/>`],
+      // Melayu: berlian bertingkat ala tenun songket
+      songket: [32, `<path d="M16 2 L22 8 L22 12 L28 16 L22 20 L22 24 L16 30 L10 24 L10 20 L4 16 L10 12 L10 8 Z" fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1"/><rect x="14" y="14" width="4" height="4" fill="${c}" fill-opacity="${o}"/>`],
+      // Jepang: gelombang bersisik seigaiha
+      seigaiha: [40, `<g fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1"><path d="${[[20, 20], [0, 10], [40, 10], [0, 30], [40, 30]].map(([x, y]) => [18, 12, 6].map((r) => `M${x - r} ${y} A${r} ${r} 0 0 1 ${x + r} ${y}`).join(" ")).join(" ")}"/></g>`, 20]
     };
     const t = tiles[kind];
     if (!t) return "none";
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${t[0]}" height="${t[0]}" viewBox="0 0 ${t[0]} ${t[0]}">${t[1]}</svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${t[0]}" height="${t[2] || t[0]}" viewBox="0 0 ${t[0]} ${t[2] || t[0]}">${t[1]}</svg>`;
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   };
 
@@ -82,6 +94,48 @@
       v: { bg: "#F3F8F4", bg2: "#0F4C45", ink: "#16352F", muted: "#5B7570", accent: "#B89443", card: "#FFFFFF", ondark: "#F1E6C6", line: "#D5E3DC" },
       fonts: { display: "'Amiri', serif", body: "'Jost', sans-serif", script: "'Amiri', serif" },
       pattern: "khatam", frame: "double", fx: null, dark: false
+    },
+    {
+      id: "gadang", name: "Rumah Gadang", cat: "Adat", tag: "Adat Minang", premium: false,
+      desc: "Merah marun terang dan emas dengan pola pucuk rebung.",
+      v: { bg: "#FBF3E4", bg2: "#7D1220", ink: "#2B1411", muted: "#76564D", accent: "#8F6A12", card: "#FFF8EA", ondark: "#F5E2AE", line: "#E6D3AA" },
+      fonts: { display: "'Cinzel', serif", body: "'Jost', sans-serif", script: "'Pinyon Script', cursive" },
+      pattern: "rebung", frame: "double", fx: null, dark: false
+    },
+    {
+      id: "pastel", name: "Jawa Pastel", cat: "Adat", tag: "Adat Jawa", premium: false,
+      desc: "Hijau sage dan mawar debu dengan gelombang parang yang lembut.",
+      v: { bg: "#FBF7F0", bg2: "#C5D1BE", ink: "#2F3A2D", muted: "#66705F", accent: "#A25D6E", card: "#FFFDF8", ondark: "#2F3A2D", line: "#E5E0D2" },
+      fonts: { display: "'Cormorant Garamond', serif", body: "'Jost', sans-serif", script: "'Great Vibes', cursive" },
+      pattern: "parang", frame: "thin", fx: null, dark: false
+    },
+    {
+      id: "galungan", name: "Galungan", cat: "Adat", tag: "Adat Bali", premium: false,
+      desc: "Hijau daun dan kuning janur dengan pola poleng.",
+      v: { bg: "#FFFBEC", bg2: "#1F3B2A", ink: "#23301F", muted: "#6B7050", accent: "#8A6205", card: "#FFFFF6", ondark: "#F7E9A5", line: "#EBDDA2" },
+      fonts: { display: "'Cinzel', serif", body: "'Jost', sans-serif", script: "'Great Vibes', cursive" },
+      pattern: "poleng", frame: "double", fx: null, dark: false
+    },
+    {
+      id: "dayak", name: "Dayak Enggang", cat: "Adat", tag: "Adat Dayak", premium: false,
+      desc: "Hitam, merah, dan kuning dengan spiral khas Dayak.",
+      v: { bg: "#F7EFDF", bg2: "#1B1613", ink: "#241B15", muted: "#6F5E4D", accent: "#B3261E", card: "#FFF9EC", ondark: "#F3C94F", line: "#E4D4B3" },
+      fonts: { display: "'Cinzel', serif", body: "'Jost', sans-serif", script: "'Cinzel', serif" },
+      pattern: "dayak", frame: "double", fx: null, dark: false
+    },
+    {
+      id: "songket", name: "Songket Ungu", cat: "Adat", tag: "Songket Melayu", premium: false,
+      desc: "Ungu tua dan emas dengan tenun berlian bertingkat.",
+      v: { bg: "#FAF4E8", bg2: "#34174A", ink: "#2A1A33", muted: "#6F5F78", accent: "#80560A", card: "#FFFAF0", ondark: "#F3DDA0", line: "#E3D3B2" },
+      fonts: { display: "'Cormorant Garamond', serif", body: "'Jost', sans-serif", script: "'Pinyon Script', cursive" },
+      pattern: "songket", frame: "double", fx: null, dark: false
+    },
+    {
+      id: "sakura", name: "Washi Sakura", cat: "Modern", tag: "Jepang", premium: false,
+      desc: "Krem washi, biru indigo, dan kelopak sakura yang jatuh.",
+      v: { bg: "#FBF8F1", bg2: "#1F2A44", ink: "#1F2430", muted: "#6A6F7C", accent: "#B5392B", card: "#FFFEFA", ondark: "#F2EDE0", line: "#E5DFD0", fx: "#F2B8C6" },
+      fonts: { display: "'Shippori Mincho', serif", body: "'Jost', sans-serif", script: "'Shippori Mincho', serif" },
+      pattern: "seigaiha", frame: "thin", fx: "petals", dark: false
     }
   ];
 
@@ -97,6 +151,7 @@
     el.style.setProperty("--card", v.card);
     el.style.setProperty("--ondark", v.ondark);
     el.style.setProperty("--line", v.line);
+    el.style.setProperty("--fx", v.fx || v.accent);
     el.style.setProperty("--display", theme.fonts.display);
     el.style.setProperty("--body", theme.fonts.body);
     el.style.setProperty("--script", theme.fonts.script);
