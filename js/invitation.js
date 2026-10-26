@@ -204,6 +204,28 @@
     ${d.hashtag ? `<p class="reveal" style="margin-top:14px;letter-spacing:.1em">${esc(d.hashtag)}</p>` : ""}</section>
     <div class="foot">Dibuat dengan <a href="index.html" target="_top">ur.memento</a></div>`;
 
+  /* ---------- dekorasi seksi isi (tekstur, bunga/pita tepi, ornamen, penutup) ---------- */
+  function decorateSections(theme) {
+    document.documentElement.style.setProperty("--art-corner", U.artCornerURL ? U.artCornerURL(theme) : "none");
+    const dec = U.artSection ? U.artSection(theme) : "";
+    const orn = U.art ? U.art(theme, "top") : "";
+    app.querySelectorAll("section.sec").forEach((sec) => {
+      if (sec.classList.contains("hero")) return;
+      if (sec.classList.contains("closing")) {
+        sec.insertAdjacentHTML("afterbegin", `<div class="wash" aria-hidden="true"></div>${layers(theme)}`);
+        const ab = U.artAssets ? U.artAssets(theme) : null;
+        if (ab && ab.border) sec.classList.add("has-border");
+        if (orn) sec.insertAdjacentHTML("afterbegin", `<div class="sec-orn" aria-hidden="true">${orn}</div>`);
+        return;
+      }
+      if (dec) { sec.insertAdjacentHTML("afterbegin", dec); sec.classList.add("decorated"); }
+      if (orn && (sec.id === "acara" || sec.id === "rsvp")) {
+        const h = sec.querySelector("h2");
+        if (h) h.insertAdjacentHTML("beforebegin", `<div class="sec-orn" aria-hidden="true">${orn}</div>`);
+      }
+    });
+  }
+
   /* ---------- render ---------- */
   function render() {
     const d = data;
@@ -217,6 +239,8 @@
 
     const divider = U.art ? U.art(theme, "divider") : "";
     if (divider) app.querySelectorAll(".rule").forEach((r) => { r.classList.add("rule-art"); r.innerHTML = divider; });
+
+    decorateSections(theme);
 
     const cover = $("#cover");
     if (opts.skipCover) {

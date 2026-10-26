@@ -94,3 +94,49 @@ body.t-putih .wash, .mini-putih .wash { opacity: .16; } body.t-pastel .wash, .mi
 .mini .mini-frame { position: relative; z-index: 2; }
 .mini.has-border { padding-left: calc(19% + 8px); }
 .mini .ly-c { width: 52%; }
+
+/* ---------- dekorasi seksi isi undangan ---------- */
+.sec.decorated, .sec.closing { position: relative; overflow: hidden; }
+.sec.decorated { padding-top: 92px; padding-bottom: 92px; }
+.sec.decorated > :not(.sd), .sec.closing > :not(.ly):not(.wash) { position: relative; z-index: 1; }
+.sd { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.sd-tex { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: .065; mix-blend-mode: multiply; }
+body.t-malam .sd-tex { mix-blend-mode: screen; opacity: .55; }
+.sd-band { position: absolute; left: 0; right: 0; height: 22px; background-size: auto 100%; background-repeat: repeat-x; opacity: .95; }
+.sd-band-t { top: 0; } .sd-band-b { bottom: 0; }
+.sd .ly-c { width: 31%; }
+.sec.closing { padding-top: 110px; padding-bottom: 110px; }
+
+/* ornamen utama (atap, penjor, kepala halaman) di atas judul seksi tertentu */
+.sec-orn { width: min(250px, 72%); margin: -6px auto 12px; position: relative; z-index: 1; }
+.sec-orn .art-svg, .sec-orn .art-img { display: block; width: 100%; height: auto; max-height: 96px; margin: 0 auto; }
+.sec-orn .art-img { width: auto; max-width: 100%; border-radius: 4px; }
+.sec:not(.dark) .sec-orn .art-svg .f1, .sec:not(.dark) .sec-orn .art-svg .g1 { fill: var(--accent); }
+.sec:not(.dark) .sec-orn .art-svg .f2 { fill: var(--accent); fill-opacity: .45; }
+.sec:not(.dark) .sec-orn .art-svg .k1, .sec:not(.dark) .sec-orn .art-svg .gk { stroke: var(--accent); }
+.sec:not(.dark) .sec-orn .art-svg .k2 { stroke: var(--accent); stroke-opacity: .5; }
+
+/* bingkai foto mempelai: dua garis dan bunga di dua sudut */
+.person .ph { position: relative; box-shadow: 0 0 0 5px var(--bg), 0 0 0 6px color-mix(in srgb, var(--accent) 60%, transparent); }
+.sec.alt .person .ph { box-shadow: 0 0 0 5px var(--card), 0 0 0 6px color-mix(in srgb, var(--accent) 60%, transparent); }
+.person .ph::before, .person .ph::after { content: ""; position: absolute; width: 104px; height: 104px; background: var(--art-corner, none) top left / contain no-repeat; pointer-events: none; z-index: 2; }
+.person .ph::before { left: -46px; top: -34px; }
+.person .ph::after { right: -46px; bottom: -34px; transform: rotate(180deg); }
+
+/* kartu acara dan hadiah: garis ganda */
+.ev { box-shadow: inset 0 0 0 5px var(--bg), inset 0 0 0 6px color-mix(in srgb, var(--accent) 45%, transparent); }
+.gift { box-shadow: inset 0 0 0 4px var(--bg), inset 0 0 0 5px color-mix(in srgb, var(--accent) 35%, transparent); }
+.hero .ly-c { width: 36%; }
+.hero.decorated, section.hero { padding-bottom: 150px; }
+.person .ph::before, .person .ph::after {
+  -webkit-mask-image: linear-gradient(to right, #000 52%, transparent 100%), linear-gradient(to bottom, #000 52%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, #000 52%, transparent 100%), linear-gradient(to bottom, #000 52%, transparent 100%); mask-composite: intersect;
+}
+/* goyangan bunga di seksi isi: halus, berporos di sudut, tidak mengangkat tepi seksi */
+.sd .ly-c img { transform-origin: 0 0; animation-name: sd-wave; animation-duration: 8s; }
+@keyframes sd-wave { 0%, 100% { transform: scale(1.03) rotate(-.6deg); } 50% { transform: scale(1.03) rotate(.7deg); } }
+.person .ph::before, .person .ph::after { width: 88px; height: 88px; }
+.person .ph::before { left: -38px; top: -30px; } .person .ph::after { right: -38px; bottom: -26px; }
+.sec.decorated .person .ph { margin-bottom: 36px; }
+.sec.closing.has-border { padding-left: calc(19% + 20px); }
+.sec.closing.has-border > .sec-orn { margin-left: auto; margin-right: auto; }

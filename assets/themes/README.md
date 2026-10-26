@@ -6,6 +6,8 @@ Taruh aset berlisensi milik Anda di `assets/themes/<id-tema>/` (mis. `assets/the
 gadang: { bg: "bg.webp", border: "border.webp", corner: "corner.webp", scene: "scene.webp" },
 ```
 
+Selain itu ada slot untuk seksi isi undangan (bukan hanya cover): `band` (pita mendatar yang diulang di tepi atas dan bawah tiap seksi; mudah dibuat dengan memutar `border` 90 derajat) dan `secCorner` (varian `corner` yang kontras di latar terang; bila tidak ada, `corner` dipakai). Seksi juga mendapat tekstur dari `bg` secara halus, dan bingkai foto mempelai memakai `corner`/`secCorner`.
+
 Semua slot opsional. `bg`, `border`, dan `corner` tampil **bersama** ilustrasi SVG bawaan tema. Ilustrasi SVG di cover dan hero hanya diganti bila tema menyediakan `scene`. Slot lama `top` dan `foot` mengganti SVG bawaan saja.
 
 ## Spesifikasi

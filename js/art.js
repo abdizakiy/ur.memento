@@ -12,16 +12,16 @@
   // Slot lama: top, foot (menggantikan ilustrasi SVG). Lihat assets/themes/README.md untuk ukuran dan brief.
   const ASSETS = {
     // contoh: gadang: { bg: "bg.webp", border: "border.webp", corner: "corner.webp", scene: "scene.webp" },
-    kencana: { bg: "bg.webp", border: "border.webp", corner: "corner.webp" }, // batik CC0, lihat assets/themes/LICENSES.md
-    pastel: { bg: "bg.webp", border: "border.webp", corner: "corner.webp" },
+    kencana: { bg: "bg.webp", border: "border.webp", corner: "corner.webp", band: "band.webp" }, // batik CC0, lihat assets/themes/LICENSES.md
+    pastel: { bg: "bg.webp", border: "border.webp", corner: "corner.webp", band: "band.webp" },
     mawar: { corner: "corner.webp" },
     gadang: { corner: "corner.webp" }, // mawar Redouté CC0 (Cleveland Museum of Art)
-    zamrud: { top: "top.webp", border: "border.webp" },
-    gading: { bg: "bg.webp", border: "border.webp" },
-    galungan: { bg: "bg.webp", border: "border.webp" },
-    dayak: { bg: "bg.webp", border: "border.webp" },
-    songket: { bg: "bg.webp", border: "border.webp" },
-    sakura: { corner: "corner.webp" },
+    zamrud: { top: "top.webp", border: "border.webp", band: "band.webp" },
+    gading: { bg: "bg.webp", border: "border.webp", band: "band.webp" },
+    galungan: { bg: "bg.webp", border: "border.webp", band: "band.webp" },
+    dayak: { bg: "bg.webp", border: "border.webp", band: "band.webp" },
+    songket: { bg: "bg.webp", border: "border.webp", band: "band.webp" },
+    sakura: { corner: "corner.webp", secCorner: "corner-sec.webp" },
     putih: { corner: "corner.webp" },
     malam: { bg: "bg.webp" },
   };
@@ -240,6 +240,20 @@
     const border = a.border ? `<div class="ly-border" style="background-image:url(&quot;${e(a.base + a.border)}&quot;)"></div>` : "";
     return `<div class="ly" aria-hidden="true">${img("ly-bg", a.bg)}${border}${img("ly-scene", a.scene)}${corner}</div>`;
   };
+
+  // dekorasi untuk seksi isi undangan: tekstur latar, pita tepi atas-bawah (band), dan bunga di sudut
+  U.artSection = (theme) => {
+    const a = U.artAssets(theme);
+    if (!a) return "";
+    const e = U.esc, u = (f) => `url(&quot;${e(a.base + f)}&quot;)`;
+    const cf = a.secCorner || a.corner;
+    const tex = a.bg ? `<div class="sd-tex" style="background-image:${u(a.bg)}"></div>` : "";
+    const band = a.band ? ["t", "b"].map((k) => `<div class="sd-band sd-band-${k}" style="background-image:${u(a.band)}"></div>`).join("") : "";
+    const corner = cf ? ["tl", "tr", "bl", "br"].map((p) => `<div class="ly-c ly-${p}"><img src="${e(a.base + cf)}" alt="" loading="lazy" decoding="async"></div>`).join("") : "";
+    return `<div class="sd" aria-hidden="true">${tex}${band}${corner}</div>`;
+  };
+  // gambar sudut untuk bingkai foto (properti CSS --art-corner)
+  U.artCornerURL = (theme) => { const a = U.artAssets(theme); const f = a && (a.secCorner || a.corner); return f ? `url("${new URL(a.base + f, document.baseURI).href}")` : "none"; };
 
   // slot "top" / "divider"; kembalikan "" bila tema tidak punya ilustrasi
   U.art = (theme, slot) => {
