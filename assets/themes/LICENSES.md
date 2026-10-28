@@ -20,6 +20,14 @@ Catat di sini setiap aset gambar yang dipasang di `assets/themes/`: sumber, lise
 | `*/band.webp` (kencana, pastel, zamrud, gading, galungan, dayak, songket) | turunan dari `border.webp` tiap tema (sumber sama seperti baris border di atas) | CC0, mengikuti sumbernya | 2026-10-26 | diputar 90 derajat agar menjadi pita mendatar yang berulang, dikecilkan |
 | `sakura/corner-sec.webp` | turunan dari `sakura/corner.webp` (katagami Badisches Landesmuseum, CC0) | CC0 | 2026-10-26 | warna diganti rose-mauve agar terbaca di seksi berlatar terang |
 
+## Foto demo mempelai (`assets/demo/`)
+| Berkas | Sumber | Lisensi | Diambil | Perubahan |
+|---|---|---|---|---|
+| `demo/bride.webp` | *Chinese bruid* (pengantin perempuan, Ternate), sekitar 1870, Rijksmuseum, koleksi NG-1988-30-D-14-2, via Europeana [90402/NG_1988_30_D_14_2](https://www.europeana.eu/item/90402/NG_1988_30_D_14_2) | Public Domain Mark | 2026-10-28 | dipotong 4:5 (kepala dan dada), diperkecil ke 640x800 |
+| `demo/groom.webp` | *Chinese bruidegom* (pengantin laki-laki, Ternate), sekitar 1870, Rijksmuseum, koleksi NG-1988-30-D-14-1, via Europeana [90402/NG_1988_30_D_14_1](https://www.europeana.eu/item/90402/NG_1988_30_D_14_1) | Public Domain Mark | 2026-10-28 | dipotong 4:5, diperkecil ke 640x800 |
+
+Ini foto sepia bersejarah, hanya penanda posisi untuk demo. Foto sungguhan klien diisi lewat kolom foto di pembuat undangan dan harus dengan izin orang yang difoto. Pixabay/Unsplash tidak dipakai (lisensi melarang redistribusi mandiri dan foto orang dikenali tidak boleh disalin).
+
 Berkas asli resolusi penuh (hingga 3400 px) tidak disimpan di repo; hanya hasil olahan. Untuk lisensi berbasis metadata Europeana, simpan tangkapan layar halaman rekaman bila sewaktu-waktu perlu membuktikan statusnya.
 
 ## Pola batik CC0 lain yang tersedia

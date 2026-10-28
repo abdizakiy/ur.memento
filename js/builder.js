@@ -29,9 +29,9 @@
     const gifts = [1, 2].map((n) => ({ bank: val(`g${n}-bank`), no: val(`g${n}-no`), name: val(`g${n}-name`) })).filter((g) => g.no.trim());
     return {
       type, theme: state.theme, guest: "Nama Tamu", kind,
-      groom: { name: val("groom-name"), nick: val("groom-nick"), parents: val("groom-parents") },
-      bride: { name: val("bride-name"), nick: val("bride-nick"), parents: val("bride-parents") },
-      host: { name: val("host-name"), title: val("host-title"), note: val("host-note") },
+      groom: { name: val("groom-name"), nick: val("groom-nick"), parents: val("groom-parents"), photo: val("groom-photo").trim() },
+      bride: { name: val("bride-name"), nick: val("bride-nick"), parents: val("bride-parents"), photo: val("bride-photo").trim() },
+      host: { name: val("host-name"), title: val("host-title"), note: val("host-note"), photo: val("host-photo").trim() },
       akad: { date: val("akad-date"), time: val("akad-time"), place: val("akad-place"), address: val("akad-address"), maps: val("akad-maps") },
       resepsi: { date: val("resepsi-date"), time: val("resepsi-time"), place: val("resepsi-place"), address: val("resepsi-address"), maps: val("resepsi-maps") },
       quote: { text: val("quote-text"), src: val("quote-src") },
@@ -45,8 +45,8 @@
     state = { theme: d.theme };
     kind = d.kind || (d.type === "acara" ? "syukuran" : "nikah");
     set("kind", kind);
-    ["groom", "bride"].forEach((k) => { set(k + "-name", d[k].name); set(k + "-nick", d[k].nick); set(k + "-parents", d[k].parents); });
-    set("host-name", d.host.name); set("host-title", d.host.title); set("host-note", d.host.note);
+    ["groom", "bride"].forEach((k) => { set(k + "-name", d[k].name); set(k + "-nick", d[k].nick); set(k + "-parents", d[k].parents); set(k + "-photo", d[k].photo); });
+    set("host-name", d.host.name); set("host-title", d.host.title); set("host-note", d.host.note); set("host-photo", d.host.photo);
     ["akad", "resepsi"].forEach((k) => ["date", "time", "place", "address", "maps"].forEach((f) => set(`${k}-${f}`, d[k][f])));
     set("quote-text", d.quote.text); set("quote-src", d.quote.src);
     set("story", (d.story || []).map((s) => (s.title ? `${s.title} | ${s.text}` : s.text)).join("\n"));

@@ -183,8 +183,8 @@
   const DEMO = {
     type: "nikah", theme: "kencana",
     guest: "Bapak/Ibu/Saudara/i",
-    groom: { name: "Raka Pratama", nick: "Raka", parents: "Putra pertama Bapak Hadi Pratama & Ibu Sari Wulandari" },
-    bride: { name: "Anisa Putri Maharani", nick: "Anisa", parents: "Putri kedua Bapak Dwi Maharani & Ibu Lestari Ningsih" },
+    groom: { name: "Raka Pratama", nick: "Raka", photo: "assets/demo/groom.webp", parents: "Putra pertama Bapak Hadi Pratama & Ibu Sari Wulandari" },
+    bride: { name: "Anisa Putri Maharani", nick: "Anisa", photo: "assets/demo/bride.webp", parents: "Putri kedua Bapak Dwi Maharani & Ibu Lestari Ningsih" },
     host: { name: "", title: "", note: "" },
     akad: { date: "2027-03-20", time: "08:00", place: "Masjid Agung Al-Ikhlas", address: "Jl. Merdeka No. 12, Yogyakarta", maps: "" },
     resepsi: { date: "2027-03-20", time: "11:00", place: "Gedung Serbaguna Taman Sari", address: "Jl. Taman Sari No. 5, Yogyakarta", maps: "" },

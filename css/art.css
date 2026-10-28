@@ -150,3 +150,7 @@ body:not(.has-corner) .person .ph::before, body:not(.has-corner) .person .ph::af
 body:not(.has-corner) .person .ph::after { top: auto; bottom: -13px; transform: rotate(45deg); }
 body:not(.has-corner) .sec.alt .person .ph::before, body:not(.has-corner) .sec.alt .person .ph::after { box-shadow: 0 0 0 3px var(--card); }
 .hero.has-corner { padding-top: 150px; }
+
+/* foto mempelai di dalam lengkung */
+.person .ph.has-photo { padding: 0; background: var(--bg2); }
+.person .ph.has-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; border-radius: inherit; }

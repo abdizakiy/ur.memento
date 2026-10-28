@@ -123,14 +123,21 @@
     return `<section class="sec"><div class="rule"></div><blockquote class="quote reveal" style="margin:0">“${esc(d.quote.text)}”<cite>${esc(d.quote.src)}</cite></blockquote></section>`;
   };
 
+  // lingkaran foto: foto bila ada tautan valid, bila tidak huruf awal nama
+  const phHTML = (p, fallback) => {
+    const src = safeUrl(p && p.photo);
+    const nm = (p && (p.name || p.nick)) || fallback;
+    return src ? `<div class="ph has-photo"><img src="${esc(src)}" alt="Foto ${esc(nm)}" loading="lazy" decoding="async" onerror="this.closest('.ph').classList.remove('has-photo');this.replaceWith(document.createTextNode(this.dataset.i))" data-i="${esc(nm.charAt(0).toUpperCase())}"></div>`
+      : `<div class="ph" aria-hidden="true">${esc(nm.charAt(0).toUpperCase())}</div>`;
+  };
   const personHTML = (p, fallback) => `<div class="person reveal">
-      <div class="ph" aria-hidden="true">${esc((p.nick || p.name || fallback).charAt(0).toUpperCase())}</div>
+      ${phHTML(p, fallback)}
       <h3>${esc(p.name || fallback)}</h3><p>${esc(p.parents)}</p></div>`;
 
   const coupleHTML = (d) => {
     if (d.type === "acara") {
       return `<section class="sec alt"><h2 class="reveal">Tuan Rumah</h2><div class="rule"></div>
-        <div class="person reveal"><div class="ph" aria-hidden="true">${esc((d.host.name || "K").charAt(0).toUpperCase())}</div><h3>${esc(d.host.name)}</h3></div></section>`;
+        <div class="person reveal">${phHTML(d.host, "K")}<h3>${esc(d.host.name)}</h3></div></section>`;
     }
     return `<section class="sec alt" id="mempelai"><h2 class="reveal">Mempelai</h2><div class="rule"></div>
       ${personHTML(d.groom, "Mempelai Pria")}<div class="amp reveal">&amp;</div>${personHTML(d.bride, "Mempelai Wanita")}</section>`;
